@@ -287,7 +287,7 @@ FIRSTMATE_HOME=
 
 if [ "$KIND" = secondmate ]; then
   case "${POS[1]:-}" in
-    ''|claude|codex|opencode|pi|grok)
+    ''|claude|codex|opencode|pi|grok|kimi)
       ARG3=${POS[1]:-}
       ;;
     *' '*)
@@ -348,6 +348,15 @@ launch_template() {
     # launch command - it is a Stop-event hook installed below (global hook +
     # per-task pointer), so the template is identical for ship/scout/secondmate.
     grok) printf '%s' 'grok --always-approve __MODELFLAG____EFFORTFLAG__"$(cat __BRIEF__)"' ;;
+    # kimi (Kimi Code CLI): --yolo auto-approves every tool call (verified: runs
+    # fully unattended), the targeted equivalent of claude's
+    # --dangerously-skip-permissions. A -p/--prompt argument without --print starts
+    # a supervised interactive session (same shape as grok's positional prompt), so
+    # firstmate can watch the pane. No per-task turn-end hook is wired yet (kimi's
+    # Stop hooks are beta and unverified for firstmate), so the launch command
+    # carries no turn-end signal and the template is identical across kinds;
+    # supervision falls back to busy-signature and stale-pane detection.
+    kimi) printf '%s' 'kimi --yolo __MODELFLAG____EFFORTFLAG__-p "$(cat __BRIEF__)"' ;;
     *) return 1 ;;
   esac
 }
@@ -435,7 +444,7 @@ model_flag_for_harness() {
   local harness=$1 model=$2
   [ -n "$model" ] && [ "$model" != default ] || return 0
   case "$harness" in
-    claude|codex|opencode|pi|grok)
+    claude|codex|opencode|pi|grok|kimi)
       printf -- '--model %s ' "$(shell_quote "$model")"
       ;;
   esac
@@ -472,6 +481,15 @@ effort_flag_for_harness() {
       # its --thinking flag.
       case "$effort" in
         low|medium|high|xhigh|max) printf -- '--thinking %s ' "$(shell_quote "$effort")" ;;
+      esac
+      ;;
+    kimi)
+      # Kimi 1.49.0 exposes only a boolean thinking mode (--thinking/--no-thinking),
+      # no effort levels. Map the shared effort vocabulary onto the boolean: the
+      # higher tiers enable thinking, the lower tiers disable it.
+      case "$effort" in
+        high|xhigh|max) printf -- '--thinking ' ;;
+        low|medium) printf -- '--no-thinking ' ;;
       esac
       ;;
     # opencode's interactive `opencode --prompt` launch has a verified --model

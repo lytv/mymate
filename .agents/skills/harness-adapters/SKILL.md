@@ -1,6 +1,6 @@
 ---
 name: harness-adapters
-description: Agent-only reference for firstmate harness operations. Use before spawning or recovering a crewmate or secondmate, handling a trust dialog, sending a harness-specific skill invocation, interrupting or exiting an agent, resuming an exited agent, or verifying a new harness adapter. Contains verified facts for claude, codex, opencode, pi, and grok.
+description: Agent-only reference for firstmate harness operations. Use before spawning or recovering a crewmate or secondmate, handling a trust dialog, sending a harness-specific skill invocation, interrupting or exiting an agent, resuming an exited agent, or verifying a new harness adapter. Contains verified facts for claude, codex, opencode, pi, grok, and kimi.
 user-invocable: false
 metadata:
   internal: true
@@ -96,6 +96,7 @@ The supported launch-profile flags below are verified locally; each row records 
 | grok | `--model <model>` | `--reasoning-effort <low\|medium\|high>` | Verified on grok 0.2.99 (2026-07-13). `--effort` is an alias, but firstmate's profile axis is reasoning effort. As of 0.2.99 the ceiling is `high`; both `xhigh` and `max` are rejected with `use one of: high, medium, low`, so firstmate omits them. |
 | pi | `--model <model>` | `--thinking <low\|medium\|high\|xhigh\|max>` | Verified 2026-07-13 on Pi 0.80.6. `pi --help` advertises `off`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`; `pi --print --model openai-codex/gpt-5.6-sol --thinking max 'Reply with exactly OK.'` completed successfully. |
 | opencode | `--model <provider/model>` | none for firstmate's interactive launch | Verified on opencode 1.17.6. `opencode run` has `--variant`, but firstmate launches the interactive `opencode --prompt` path, which has no verified effort flag. |
+| kimi | `--model <model>` | `--thinking` / `--no-thinking` (boolean; no effort levels) | Verified on kimi 1.49.0 (2026-07-21). Kimi exposes only a boolean thinking mode, not a graded effort axis, so `fm-spawn` maps the shared vocabulary onto it: `high`/`xhigh`/`max` emit `--thinking`, `low`/`medium` emit `--no-thinking`. |
 
 When a requested effort value is outside the harness-specific accepted set, `fm-spawn` records the requested `effort=` in meta but emits no effort flag for that harness.
 This preserves launch success instead of passing a known-bad value.
@@ -275,3 +276,28 @@ The adapter therefore runs the shared predicate and, when it returns 2, forces o
 It does not pass `--permission-mode`, so the passive hook cannot escalate the primary session's tool permissions.
 Project-local Grok hooks require folder trust, verified with launch-time `--trust`; if the primary firstmate checkout is not trusted for Grok hooks, this primary guard fails open and `fm-guard.sh` remains the next-command alarm.
 Grok's primary watcher protocol is Claude-shaped background-notify around `bin/fm-watch-arm.sh`; the passive Stop hook is only a backstop for blind turn ends.
+
+## kimi (VERIFIED 2026-07-21, kimi 1.49.0)
+
+Kimi Code CLI (`kimi`), an agentic CLI installed at `/Users/mac/.local/bin/kimi`.
+Launch with a `-p`/`--prompt` argument and no `--print`: this starts a supervised interactive TUI session seeded with the brief, the same shape as grok's positional prompt, so firstmate watches the pane.
+This is a verified crewmate and scout dispatch adapter only.
+It is NOT yet a verified primary harness: no primary turn-end guard, no PreToolUse seatbelt, and no watcher supervision protocol are wired for kimi, so do not run firstmate itself on kimi until those are built and verified.
+
+| Fact | Value |
+|---|---|
+| Busy-pane signature | `Thinking...` and `Composing...`, each behind a braille spinner glyph (e.g. `⠇ Thinking... 2s · 145 tokens`, `⠹ Composing... <1s · 48 tokens`). The busy regex matches the ASCII three-dot text, not the spinner glyph, to avoid locale fragility - the same approach as grok. Empirically confirmed live on 2026-07-21. |
+| Exit command | `Ctrl-D` when the input is empty (prints `Bye!`). |
+| Interrupt | single `Ctrl-C` (prints `Interrupted by user`). |
+| Autonomy | `--yolo` (aliases `--yes`, `-y`); auto-approves all tool calls, verified to run fully unattended. The targeted equivalent of claude's `--dangerously-skip-permissions`. |
+| Model flag | `--model` / `-m <model>`. |
+| Effort flag | boolean `--thinking` / `--no-thinking` only; see the [launch-profile-axes table](#launch-profile-axes) for the shared-vocabulary mapping. |
+| Prompt flag | `--prompt` / `-p` / `-c <text>`; without `--print` it seeds an interactive session rather than running headless. |
+| Skill invocation | `/skill:<name>` (e.g. `/skill:no-mistakes`). |
+| Env marker | none; kimi sets no harness env marker, so `bin/fm-harness.sh` detects it by process ancestry (command name `kimi`) only. |
+| Resume | `--session` / `-S` / `-r <id>`, or `--continue` / `-C` for the most recent session in the working directory; the resume id is printed on exit. |
+
+No per-task turn-end hook is wired for a kimi crewmate.
+Kimi advertises Stop hooks (beta, `stop_hook_active` plus exit 2), but they are unverified for firstmate, so `fm-spawn` installs no turn-end signal for kimi.
+Crewmate supervision therefore relies on the busy-pane signature above and stale-pane detection rather than a precise per-turn wake; this is the one gap to close when kimi is promoted toward primary use.
+No trust or workspace dialog was observed launching kimi inside a directory with `--yolo`.

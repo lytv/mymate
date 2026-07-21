@@ -1,0 +1,15 @@
+{
+  "id": "session-1784598901856",
+  "startedAt": "2026-07-21T01:55:01.856Z",
+  "cwd": "/Users/mac/tools/firstmate",
+  "context": {},
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "restoredAt": "2026-07-21T01:55:19.229Z",
+  "endedAt": "2026-07-21T01:55:20.378Z",
+  "duration": 18523
+}

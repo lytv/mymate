@@ -105,8 +105,9 @@ SIGNAL_GRACE=${FM_SIGNAL_GRACE:-30}   # seconds to linger after a signal so trai
 # claude/codex: "esc to interrupt"; opencode: "esc interrupt"; pi: "Working...";
 # grok: "Ctrl+c:cancel". Claude's current spinner signature is matched only for
 # a recorded Claude task because an ellipsis followed by elapsed time is not a
-# safe shared signature for arbitrary harness output.
-BUSY_REGEX=${FM_BUSY_REGEX:-'esc (to )?interrupt|Working\.\.\.|Thinking\.\.\.|Composing\.\.\.|Ctrl\+c:cancel'}
+# safe shared signature for arbitrary harness output. Kimi's moon-plus-middot
+# spinner signature is likewise matched only for a recorded Kimi task.
+BUSY_REGEX=${FM_BUSY_REGEX:-'esc (to )?interrupt|Working\.\.\.|Ctrl\+c:cancel'}
 # Always-on wake triage: most wakes during a long crew validation are benign (a
 # working: note or turn-end while a pipeline runs, a no-change heartbeat). Rather
 # than wake firstmate's LLM for each, this watcher classifies every wake in bash

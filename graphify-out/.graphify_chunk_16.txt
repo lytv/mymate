@@ -1,0 +1,6 @@
+/Users/mac/aicoder/firstmate/.agents/skills/project-management/SKILL.md
+/Users/mac/aicoder/firstmate/.agents/skills/secondmate-provisioning/SKILL.md
+/Users/mac/aicoder/firstmate/.agents/skills/stow/SKILL.md
+/Users/mac/aicoder/firstmate/.agents/skills/stuck-crewmate-recovery/SKILL.md
+/Users/mac/aicoder/firstmate/.agents/skills/updatefirstmate/SKILL.md
+/Users/mac/aicoder/firstmate/skills/stow/SKILL.md

@@ -1,0 +1,1 @@
+/Users/mac/aicoder/firstmate/.agents/skills/firstmate-codexapp/agents/openai.yaml

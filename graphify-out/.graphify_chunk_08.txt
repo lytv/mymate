@@ -1,0 +1,7 @@
+/Users/mac/aicoder/firstmate/bin/fm-watch.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-dismiss.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-followup.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-lib.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-link.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-poll.sh
+/Users/mac/aicoder/firstmate/bin/fm-x-reply.sh

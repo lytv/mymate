@@ -1,0 +1,6 @@
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/claude.md
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/codex.md
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/grok.md
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/opencode.md
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/pi.md
+/Users/mac/aicoder/firstmate/docs/supervision-protocols/unknown.md

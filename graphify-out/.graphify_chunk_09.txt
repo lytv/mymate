@@ -1,0 +1,15 @@
+/Users/mac/aicoder/firstmate/docs/architecture-explainer.html
+/Users/mac/aicoder/firstmate/docs/architecture.md
+/Users/mac/aicoder/firstmate/docs/arm-pretool-check.md
+/Users/mac/aicoder/firstmate/docs/cd-guard.md
+/Users/mac/aicoder/firstmate/docs/cmux-backend.md
+/Users/mac/aicoder/firstmate/docs/codex-app-backend.md
+/Users/mac/aicoder/firstmate/docs/configuration.md
+/Users/mac/aicoder/firstmate/docs/decision-hold-lifecycle.md
+/Users/mac/aicoder/firstmate/docs/herdr-backend.md
+/Users/mac/aicoder/firstmate/docs/orca-backend.md
+/Users/mac/aicoder/firstmate/docs/scripts.md
+/Users/mac/aicoder/firstmate/docs/tmux-backend.md
+/Users/mac/aicoder/firstmate/docs/turnend-guard.md
+/Users/mac/aicoder/firstmate/docs/wedge-alarm.md
+/Users/mac/aicoder/firstmate/docs/zellij-backend.md

@@ -1,0 +1,1157 @@
+{
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784280331140.json": {
+    "mtime": 1785115350.2865207,
+    "ast_hash": "c03d5a0a82b71e092209884c2f29f645",
+    "semantic_hash": "c03d5a0a82b71e092209884c2f29f645"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784531755115.json": {
+    "mtime": 1785115350.286579,
+    "ast_hash": "1999914286d8f4ba3c5296dee3e509b4",
+    "semantic_hash": "1999914286d8f4ba3c5296dee3e509b4"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784598901856.json": {
+    "mtime": 1785115350.2866344,
+    "ast_hash": "dec3f5f509c726034a341338c757ed89",
+    "semantic_hash": "dec3f5f509c726034a341338c757ed89"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784599647399.json": {
+    "mtime": 1785115350.2866924,
+    "ast_hash": "8d4f713b9b194c0cc27e0f468cb37a7a",
+    "semantic_hash": "8d4f713b9b194c0cc27e0f468cb37a7a"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784601086883.json": {
+    "mtime": 1785115350.286751,
+    "ast_hash": "6ca7327e4c803b43cb4372597e73c0d4",
+    "semantic_hash": "6ca7327e4c803b43cb4372597e73c0d4"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784601173858.json": {
+    "mtime": 1785115350.2868092,
+    "ast_hash": "7de5533d7c47ce359767eeb0c9b537dd",
+    "semantic_hash": "7de5533d7c47ce359767eeb0c9b537dd"
+  },
+  "/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784606325843.json": {
+    "mtime": 1785115364.918854,
+    "ast_hash": "ab9e63a59e398b48048d80e9d1fb3a57",
+    "semantic_hash": "ab9e63a59e398b48048d80e9d1fb3a57"
+  },
+  "/Users/mac/aicoder/firstmate/.claude/settings.json": {
+    "mtime": 1785115350.286926,
+    "ast_hash": "767b271eba64a5b5ae55aa4b2a52f7e6",
+    "semantic_hash": "767b271eba64a5b5ae55aa4b2a52f7e6"
+  },
+  "/Users/mac/aicoder/firstmate/.codex/hooks.json": {
+    "mtime": 1785115350.2870698,
+    "ast_hash": "6519061aee9fcadbfabc44ecb59b238f",
+    "semantic_hash": "6519061aee9fcadbfabc44ecb59b238f"
+  },
+  "/Users/mac/aicoder/firstmate/.grok/hooks/fm-primary-cd-check.json": {
+    "mtime": 1785115350.287485,
+    "ast_hash": "932907bcc5026f922a7f119817416ce2",
+    "semantic_hash": "932907bcc5026f922a7f119817416ce2"
+  },
+  "/Users/mac/aicoder/firstmate/.grok/hooks/fm-primary-pretool-check.json": {
+    "mtime": 1785115350.287545,
+    "ast_hash": "6c63f3535784b7792aabadc050f9ce11",
+    "semantic_hash": "6c63f3535784b7792aabadc050f9ce11"
+  },
+  "/Users/mac/aicoder/firstmate/.grok/hooks/fm-primary-turnend-guard.json": {
+    "mtime": 1785115350.2876077,
+    "ast_hash": "4d0cb9b7aeb79472038cbf167e200104",
+    "semantic_hash": "4d0cb9b7aeb79472038cbf167e200104"
+  },
+  "/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-cd-check.js": {
+    "mtime": 1785115350.2878416,
+    "ast_hash": "bd062d76198cf48698c729952e34ad9c",
+    "semantic_hash": "bd062d76198cf48698c729952e34ad9c"
+  },
+  "/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-pretool-check.js": {
+    "mtime": 1785115350.2879026,
+    "ast_hash": "38e04a46fa9111a916246608c135db81",
+    "semantic_hash": "38e04a46fa9111a916246608c135db81"
+  },
+  "/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-turnend-guard.js": {
+    "mtime": 1785115350.28798,
+    "ast_hash": "e36b0f739d4e7668f8293a7fa5348574",
+    "semantic_hash": "e36b0f739d4e7668f8293a7fa5348574"
+  },
+  "/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-watch-arm.js": {
+    "mtime": 1785115350.2880647,
+    "ast_hash": "dd3e5c182bf9b3f01bee5555a1e855e8",
+    "semantic_hash": "dd3e5c182bf9b3f01bee5555a1e855e8"
+  },
+  "/Users/mac/aicoder/firstmate/.opencode/plugins/package.json": {
+    "mtime": 1785115350.288125,
+    "ast_hash": "07613765e9341a0662911bdef9f5bb2b",
+    "semantic_hash": "07613765e9341a0662911bdef9f5bb2b"
+  },
+  "/Users/mac/aicoder/firstmate/.pi/extensions/fm-primary-pi-watch.ts": {
+    "mtime": 1785115350.28828,
+    "ast_hash": "d2202c83f5c0c52d009a20a2fedacb97",
+    "semantic_hash": "d2202c83f5c0c52d009a20a2fedacb97"
+  },
+  "/Users/mac/aicoder/firstmate/.pi/extensions/fm-primary-turnend-guard.ts": {
+    "mtime": 1785115350.288367,
+    "ast_hash": "da85e9a41a751d2888f99b917ff29922",
+    "semantic_hash": "da85e9a41a751d2888f99b917ff29922"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/cmux.sh": {
+    "mtime": 1785115350.2939363,
+    "ast_hash": "dad681b82b1e199302d5354c263839f5",
+    "semantic_hash": "dad681b82b1e199302d5354c263839f5"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/herdr-eventwait.py": {
+    "mtime": 1785115350.2940452,
+    "ast_hash": "bcfe67d5270b5b650f220fcb1ac8bf92",
+    "semantic_hash": "bcfe67d5270b5b650f220fcb1ac8bf92"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/herdr.sh": {
+    "mtime": 1785115350.294283,
+    "ast_hash": "14f2b6406d464bd53218806806f9e1c7",
+    "semantic_hash": "14f2b6406d464bd53218806806f9e1c7"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/orca.sh": {
+    "mtime": 1785115350.2944255,
+    "ast_hash": "0c920f735839387c4ab13cd267cce7d4",
+    "semantic_hash": "0c920f735839387c4ab13cd267cce7d4"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/tmux.sh": {
+    "mtime": 1785115350.294603,
+    "ast_hash": "0f66be31a25cb97a4fa54137ab526f28",
+    "semantic_hash": "0f66be31a25cb97a4fa54137ab526f28"
+  },
+  "/Users/mac/aicoder/firstmate/bin/backends/zellij.sh": {
+    "mtime": 1785115350.2947595,
+    "ast_hash": "6d12c35bec25152fdf6e229bdc749fbd",
+    "semantic_hash": "6d12c35bec25152fdf6e229bdc749fbd"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-afk-launch.sh": {
+    "mtime": 1785115350.2948837,
+    "ast_hash": "ee763a1f8f01ff84e33b055da0d69ca7",
+    "semantic_hash": "ee763a1f8f01ff84e33b055da0d69ca7"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-afk-return.sh": {
+    "mtime": 1785115350.2949777,
+    "ast_hash": "ca25ac3117f8ec14072040ea0d4ef1cb",
+    "semantic_hash": "ca25ac3117f8ec14072040ea0d4ef1cb"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-afk-start.sh": {
+    "mtime": 1785115350.2950556,
+    "ast_hash": "56c7a37f4f7d3a029013f34901d7fb81",
+    "semantic_hash": "56c7a37f4f7d3a029013f34901d7fb81"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-arm-command-policy.mjs": {
+    "mtime": 1785115350.2951796,
+    "ast_hash": "f650bc647671720993246d55c6581fbb",
+    "semantic_hash": "f650bc647671720993246d55c6581fbb"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-arm-pretool-check.sh": {
+    "mtime": 1785115350.295276,
+    "ast_hash": "2d72cbae7e54c5a96c58c383063abbd0",
+    "semantic_hash": "2d72cbae7e54c5a96c58c383063abbd0"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-backend-hometag-lib.sh": {
+    "mtime": 1785115350.2953541,
+    "ast_hash": "4329970947ae910757ef181a07ca7402",
+    "semantic_hash": "4329970947ae910757ef181a07ca7402"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-backend.sh": {
+    "mtime": 1785115350.2954853,
+    "ast_hash": "aa2bf79a61004dadf12a53be08dd2663",
+    "semantic_hash": "aa2bf79a61004dadf12a53be08dd2663"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-backlog-handoff.sh": {
+    "mtime": 1785115350.2956126,
+    "ast_hash": "2839babbac0409a199cc3512d6f59441",
+    "semantic_hash": "2839babbac0409a199cc3512d6f59441"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-bearings-snapshot.sh": {
+    "mtime": 1785115350.2957375,
+    "ast_hash": "8103f36e9dd1a40b286dced1da3b028f",
+    "semantic_hash": "8103f36e9dd1a40b286dced1da3b028f"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-bootstrap.sh": {
+    "mtime": 1785115350.2959406,
+    "ast_hash": "17700d4d95f3ec7f52a90a630a736dad",
+    "semantic_hash": "17700d4d95f3ec7f52a90a630a736dad"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-brief.sh": {
+    "mtime": 1785115350.296084,
+    "ast_hash": "fe2d38c4885b077dbde82a49be900277",
+    "semantic_hash": "fe2d38c4885b077dbde82a49be900277"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-cd-command-policy.mjs": {
+    "mtime": 1785115350.2961853,
+    "ast_hash": "c6b7ce8781c070b87fc66d75c088e62a",
+    "semantic_hash": "c6b7ce8781c070b87fc66d75c088e62a"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-cd-pretool-check.sh": {
+    "mtime": 1785115350.2962813,
+    "ast_hash": "045637a2aebb0c420ad5c50e0211ee9f",
+    "semantic_hash": "045637a2aebb0c420ad5c50e0211ee9f"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-check-lib.sh": {
+    "mtime": 1785115350.2963436,
+    "ast_hash": "1ec275dc023764a5c9cbb782adf31fb2",
+    "semantic_hash": "1ec275dc023764a5c9cbb782adf31fb2"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-check-register.sh": {
+    "mtime": 1785115350.2964125,
+    "ast_hash": "55984cdd379c37bff25dd0094e535056",
+    "semantic_hash": "55984cdd379c37bff25dd0094e535056"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-classify-lib.sh": {
+    "mtime": 1785115350.2965372,
+    "ast_hash": "bfce0f3ed9ce1fc1bcb92caa05ca6161",
+    "semantic_hash": "bfce0f3ed9ce1fc1bcb92caa05ca6161"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-composer-lib.sh": {
+    "mtime": 1785115350.2968366,
+    "ast_hash": "9665781b149fd0a3723cd1563bcc6149",
+    "semantic_hash": "9665781b149fd0a3723cd1563bcc6149"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-config-inherit-lib.sh": {
+    "mtime": 1785115350.296927,
+    "ast_hash": "ec1d7b6bda9c755eff7f68c6609d46fc",
+    "semantic_hash": "ec1d7b6bda9c755eff7f68c6609d46fc"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-config-push.sh": {
+    "mtime": 1785115350.2970278,
+    "ast_hash": "c99360ce9e18e4c5b18a0d94f2da17eb",
+    "semantic_hash": "c99360ce9e18e4c5b18a0d94f2da17eb"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-crew-state.sh": {
+    "mtime": 1785115350.2971547,
+    "ast_hash": "15365927ac610fa53b1ab9cc91a0a3b5",
+    "semantic_hash": "15365927ac610fa53b1ab9cc91a0a3b5"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-decision-hold.sh": {
+    "mtime": 1785115350.297263,
+    "ast_hash": "4ebc176ce6392c8de5eb2ed7ab1c6222",
+    "semantic_hash": "4ebc176ce6392c8de5eb2ed7ab1c6222"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-dispatch-select.sh": {
+    "mtime": 1785115350.297365,
+    "ast_hash": "ec1be006b837ba8f9a760fec21c2032f",
+    "semantic_hash": "ec1be006b837ba8f9a760fec21c2032f"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-ensure-agents-md.sh": {
+    "mtime": 1785115350.297603,
+    "ast_hash": "3ccf9599f7b0d6439cf6214d0518b003",
+    "semantic_hash": "3ccf9599f7b0d6439cf6214d0518b003"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-ff-lib.sh": {
+    "mtime": 1785115350.2977262,
+    "ast_hash": "3d66390c65a8be452f58b01c9e54730f",
+    "semantic_hash": "3d66390c65a8be452f58b01c9e54730f"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-fleet-snapshot.sh": {
+    "mtime": 1785115350.2978847,
+    "ast_hash": "becd8a384c7a8939b3f5740ef8debe13",
+    "semantic_hash": "becd8a384c7a8939b3f5740ef8debe13"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-fleet-sync.sh": {
+    "mtime": 1785115350.2979875,
+    "ast_hash": "205e7c6fa8c86bfc4cb75e7b809c6cc9",
+    "semantic_hash": "205e7c6fa8c86bfc4cb75e7b809c6cc9"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-fleet-view.sh": {
+    "mtime": 1785115350.2980688,
+    "ast_hash": "0a3e7194c2241c85124ae97df525c345",
+    "semantic_hash": "0a3e7194c2241c85124ae97df525c345"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-gate-refuse-lib.sh": {
+    "mtime": 1785115350.2981606,
+    "ast_hash": "a1362b79ba2f6a0f8ac26ffa93e403a5",
+    "semantic_hash": "a1362b79ba2f6a0f8ac26ffa93e403a5"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-guard.sh": {
+    "mtime": 1785115350.2983174,
+    "ast_hash": "1cde0e5a05c6adf7e99fdb69ec55363c",
+    "semantic_hash": "1cde0e5a05c6adf7e99fdb69ec55363c"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-harness.sh": {
+    "mtime": 1785115350.2983937,
+    "ast_hash": "e8fd7bfbac851c90baea5fe802882e4a",
+    "semantic_hash": "e8fd7bfbac851c90baea5fe802882e4a"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-herdr-lab.sh": {
+    "mtime": 1785115350.2985468,
+    "ast_hash": "dcb4108988f19ce2577c85734e3b1db5",
+    "semantic_hash": "dcb4108988f19ce2577c85734e3b1db5"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-home-seed.sh": {
+    "mtime": 1785115350.2986708,
+    "ast_hash": "3af8332267c48565a42b1cf975ff9d69",
+    "semantic_hash": "3af8332267c48565a42b1cf975ff9d69"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-install-shellcheck.sh": {
+    "mtime": 1785115350.2987447,
+    "ast_hash": "f81eef8a46b73708cca6cd1e85a709b2",
+    "semantic_hash": "f81eef8a46b73708cca6cd1e85a709b2"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-lint.sh": {
+    "mtime": 1785115350.2988093,
+    "ast_hash": "97280af08087f3d5055a2e19455bc495",
+    "semantic_hash": "97280af08087f3d5055a2e19455bc495"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-lock-lib.sh": {
+    "mtime": 1785115350.2988725,
+    "ast_hash": "68c7a6583ecf86f4a18a60011596edbf",
+    "semantic_hash": "68c7a6583ecf86f4a18a60011596edbf"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-lock.sh": {
+    "mtime": 1785115350.298942,
+    "ast_hash": "d9834d7eb0b26573ea36a497c7dec53f",
+    "semantic_hash": "d9834d7eb0b26573ea36a497c7dec53f"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-marker-lib.sh": {
+    "mtime": 1785115350.299029,
+    "ast_hash": "2f42ea5a2981899597e74d2c77bbe9a0",
+    "semantic_hash": "2f42ea5a2981899597e74d2c77bbe9a0"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-merge-local.sh": {
+    "mtime": 1785115350.2990959,
+    "ast_hash": "9345399d8760c32c7af8bcdc5d42d622",
+    "semantic_hash": "9345399d8760c32c7af8bcdc5d42d622"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-peek.sh": {
+    "mtime": 1785115350.2991602,
+    "ast_hash": "b1af92433d2a254e1e4a51029f7642bb",
+    "semantic_hash": "b1af92433d2a254e1e4a51029f7642bb"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-pr-check-migrate.sh": {
+    "mtime": 1785115350.2992635,
+    "ast_hash": "3188e940b9e73a1d5421eaeb5f7c75a0",
+    "semantic_hash": "3188e940b9e73a1d5421eaeb5f7c75a0"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-pr-check.sh": {
+    "mtime": 1785115350.2993395,
+    "ast_hash": "d46099967e4112d36239e12f2fc94125",
+    "semantic_hash": "d46099967e4112d36239e12f2fc94125"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-pr-lib.sh": {
+    "mtime": 1785115350.2994351,
+    "ast_hash": "337bcf8bc9c7c4c7eb4610382e44570e",
+    "semantic_hash": "337bcf8bc9c7c4c7eb4610382e44570e"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-pr-merge.sh": {
+    "mtime": 1785115350.2994957,
+    "ast_hash": "66e2529735813c94f8d46acc7498d24e",
+    "semantic_hash": "66e2529735813c94f8d46acc7498d24e"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-pr-poll.sh": {
+    "mtime": 1785115350.299557,
+    "ast_hash": "d3b2e5f707963cef4dd6ba2a110d3632",
+    "semantic_hash": "d3b2e5f707963cef4dd6ba2a110d3632"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-project-mode.sh": {
+    "mtime": 1785115350.299634,
+    "ast_hash": "ff39ed0767a967308445516aeae30c7e",
+    "semantic_hash": "ff39ed0767a967308445516aeae30c7e"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-promote.sh": {
+    "mtime": 1785115350.299702,
+    "ast_hash": "e2ef7408f800cf513b9934f3a4b6a72a",
+    "semantic_hash": "e2ef7408f800cf513b9934f3a4b6a72a"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-review-diff.sh": {
+    "mtime": 1785115350.299794,
+    "ast_hash": "b47b9142208c3163809d6c0f363b6445",
+    "semantic_hash": "b47b9142208c3163809d6c0f363b6445"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-send.sh": {
+    "mtime": 1785115350.3000946,
+    "ast_hash": "c52e43676de0868df961378f7fc333b5",
+    "semantic_hash": "c52e43676de0868df961378f7fc333b5"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-session-start.sh": {
+    "mtime": 1785115350.3002985,
+    "ast_hash": "de4cf03b8fec2ecabf79a0538ce5ec61",
+    "semantic_hash": "de4cf03b8fec2ecabf79a0538ce5ec61"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-spawn.sh": {
+    "mtime": 1785115350.3004677,
+    "ast_hash": "5aba6bb941ed575c1c55a5b86150d633",
+    "semantic_hash": "5aba6bb941ed575c1c55a5b86150d633"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-supervise-daemon.sh": {
+    "mtime": 1785115350.3006914,
+    "ast_hash": "468a6d3f2b91a979e0a4d5c5583bef40",
+    "semantic_hash": "468a6d3f2b91a979e0a4d5c5583bef40"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-supervision-instructions.sh": {
+    "mtime": 1785115350.3008018,
+    "ast_hash": "5884afc674cbeeb481ac7f13f3eab619",
+    "semantic_hash": "5884afc674cbeeb481ac7f13f3eab619"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-supervision-lib.sh": {
+    "mtime": 1785115350.300874,
+    "ast_hash": "ce3110205cc516a2714e88e4fcc580ca",
+    "semantic_hash": "ce3110205cc516a2714e88e4fcc580ca"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-supervisor-target-lib.sh": {
+    "mtime": 1785115350.3009458,
+    "ast_hash": "d8a223b773f633e86c57dc5b61dcaf0b",
+    "semantic_hash": "d8a223b773f633e86c57dc5b61dcaf0b"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-tangle-lib.sh": {
+    "mtime": 1785115350.30101,
+    "ast_hash": "eb89cc440d3d752af182b3355aae45b3",
+    "semantic_hash": "eb89cc440d3d752af182b3355aae45b3"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-tasks-axi-lib.sh": {
+    "mtime": 1785115350.3010864,
+    "ast_hash": "43e2d35d35693cf2466a1d755d251ea2",
+    "semantic_hash": "43e2d35d35693cf2466a1d755d251ea2"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-teardown.sh": {
+    "mtime": 1785115350.3012898,
+    "ast_hash": "d6ebd2bfa2112dd5bf12a63d4fad42fa",
+    "semantic_hash": "d6ebd2bfa2112dd5bf12a63d4fad42fa"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-tmux-lib.sh": {
+    "mtime": 1785115350.3014603,
+    "ast_hash": "3997dee2811c11bd14c63f75f36f0913",
+    "semantic_hash": "3997dee2811c11bd14c63f75f36f0913"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-transition-lib.sh": {
+    "mtime": 1785115350.301553,
+    "ast_hash": "c68868c781c1a2088d9b9f23073ad218",
+    "semantic_hash": "c68868c781c1a2088d9b9f23073ad218"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-turnend-guard-grok.sh": {
+    "mtime": 1785115350.3016286,
+    "ast_hash": "2bfcc5fc7cc432b5e21ce1ca4768e1d6",
+    "semantic_hash": "2bfcc5fc7cc432b5e21ce1ca4768e1d6"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-turnend-guard.sh": {
+    "mtime": 1785115350.3017075,
+    "ast_hash": "0da94db6ed13596aec7512912c7469a6",
+    "semantic_hash": "0da94db6ed13596aec7512912c7469a6"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-update.sh": {
+    "mtime": 1785115350.3018014,
+    "ast_hash": "f2a030896430ec9e94fece3ccc6c4a17",
+    "semantic_hash": "f2a030896430ec9e94fece3ccc6c4a17"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-wake-drain.sh": {
+    "mtime": 1785115350.3018687,
+    "ast_hash": "9963cef4a50c3969d48b1491c8bd919d",
+    "semantic_hash": "9963cef4a50c3969d48b1491c8bd919d"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-wake-lib.sh": {
+    "mtime": 1785115350.3021677,
+    "ast_hash": "937a8411dddf334085710a827988cd60",
+    "semantic_hash": "937a8411dddf334085710a827988cd60"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-watch-arm.sh": {
+    "mtime": 1785115350.3023415,
+    "ast_hash": "a20a12d9265d9cf6aae822812b054165",
+    "semantic_hash": "a20a12d9265d9cf6aae822812b054165"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-watch-checkpoint.sh": {
+    "mtime": 1785115350.3024082,
+    "ast_hash": "346c794aca958e1041ce631d195b28b1",
+    "semantic_hash": "346c794aca958e1041ce631d195b28b1"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-watch.sh": {
+    "mtime": 1785115350.3025365,
+    "ast_hash": "ab305f4a7f78224669cf3a14d96ae07b",
+    "semantic_hash": "ab305f4a7f78224669cf3a14d96ae07b"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-dismiss.sh": {
+    "mtime": 1785115350.3026383,
+    "ast_hash": "8b5c34847815f39eea0217e41d9b55ff",
+    "semantic_hash": "8b5c34847815f39eea0217e41d9b55ff"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-followup.sh": {
+    "mtime": 1785115350.3029206,
+    "ast_hash": "bf159f4fd8d3acbe3e49b5b844ffe3d6",
+    "semantic_hash": "bf159f4fd8d3acbe3e49b5b844ffe3d6"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-lib.sh": {
+    "mtime": 1785115350.3030703,
+    "ast_hash": "c89101832ec133a1b6e54b7a134bbcfe",
+    "semantic_hash": "c89101832ec133a1b6e54b7a134bbcfe"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-link.sh": {
+    "mtime": 1785115350.303168,
+    "ast_hash": "3562c0f48c2efec644a27442b50a9e2c",
+    "semantic_hash": "3562c0f48c2efec644a27442b50a9e2c"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-poll.sh": {
+    "mtime": 1785115350.3032577,
+    "ast_hash": "2c133dea68e207cd4c2bd51f90f9e0f9",
+    "semantic_hash": "2c133dea68e207cd4c2bd51f90f9e0f9"
+  },
+  "/Users/mac/aicoder/firstmate/bin/fm-x-reply.sh": {
+    "mtime": 1785115350.3033748,
+    "ast_hash": "2703bee0675f0a8d154a1f19e641c5bb",
+    "semantic_hash": "2703bee0675f0a8d154a1f19e641c5bb"
+  },
+  "/Users/mac/aicoder/firstmate/docs/examples/crew-dispatch.json": {
+    "mtime": 1785115350.3051014,
+    "ast_hash": "cb2924427ec46cae1f7df0f97df5be29",
+    "semantic_hash": "cb2924427ec46cae1f7df0f97df5be29"
+  },
+  "/Users/mac/aicoder/firstmate/skills-lock.json": {
+    "mtime": 1785115350.3072515,
+    "ast_hash": "d25c2adfccf5a43658bff67a2df5579d",
+    "semantic_hash": "d25c2adfccf5a43658bff67a2df5579d"
+  },
+  "/Users/mac/aicoder/firstmate/tests/cmux-test-safety.sh": {
+    "mtime": 1785115350.3077993,
+    "ast_hash": "9d3c79a6430965292ea1cb34185f3c9b",
+    "semantic_hash": "9d3c79a6430965292ea1cb34185f3c9b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-afk-inject-e2e.test.sh": {
+    "mtime": 1785115350.3079288,
+    "ast_hash": "3913e14b4d3af841dc52e898814bcaf5",
+    "semantic_hash": "3913e14b4d3af841dc52e898814bcaf5"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-afk-inject-herdr-e2e.test.sh": {
+    "mtime": 1785115350.3080475,
+    "ast_hash": "3c7c33a33b4402a898d810851e71d4dd",
+    "semantic_hash": "3c7c33a33b4402a898d810851e71d4dd"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-afk-launch.test.sh": {
+    "mtime": 1785115350.3081753,
+    "ast_hash": "6d5b8f544d19c22aca3264b21fe8d8b8",
+    "semantic_hash": "6d5b8f544d19c22aca3264b21fe8d8b8"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-afk-pi-herdr-return-e2e.test.sh": {
+    "mtime": 1785115350.3083022,
+    "ast_hash": "c43b8d12fd74d4548992ce1152792bc6",
+    "semantic_hash": "c43b8d12fd74d4548992ce1152792bc6"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-afk-return.test.sh": {
+    "mtime": 1785115350.308459,
+    "ast_hash": "3689116ab948d49f2cacd7a8fc7103cc",
+    "semantic_hash": "3689116ab948d49f2cacd7a8fc7103cc"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-arm-pretool-check.test.sh": {
+    "mtime": 1785115350.3085685,
+    "ast_hash": "1c047e7dffa466aaea1ed3f0865c5ce2",
+    "semantic_hash": "1c047e7dffa466aaea1ed3f0865c5ce2"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-autodetect-smoke.test.sh": {
+    "mtime": 1785115350.3086944,
+    "ast_hash": "af995cf4bbebf2f9381b268c6597e248",
+    "semantic_hash": "af995cf4bbebf2f9381b268c6597e248"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-cmux-smoke.test.sh": {
+    "mtime": 1785115350.3088667,
+    "ast_hash": "d92f0cfa3bbfa88083360a1825ffb472",
+    "semantic_hash": "d92f0cfa3bbfa88083360a1825ffb472"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-cmux.test.sh": {
+    "mtime": 1785115350.309045,
+    "ast_hash": "8b7e54f92f858384bf4a2f2b0a62c221",
+    "semantic_hash": "8b7e54f92f858384bf4a2f2b0a62c221"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-eventwait-smoke.test.sh": {
+    "mtime": 1785115350.3091564,
+    "ast_hash": "1dce28ce190213a31923d42a91ac1201",
+    "semantic_hash": "1dce28ce190213a31923d42a91ac1201"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-eventwait.test.py": {
+    "mtime": 1785115350.3092272,
+    "ast_hash": "a31b2726749db4a51e6afa36177076dd",
+    "semantic_hash": "a31b2726749db4a51e6afa36177076dd"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-prune-safety-e2e.test.sh": {
+    "mtime": 1785115350.3093982,
+    "ast_hash": "04e39c058829cdcf04d33ca9b5778f87",
+    "semantic_hash": "04e39c058829cdcf04d33ca9b5778f87"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-respawn-idem-e2e.test.sh": {
+    "mtime": 1785115350.3096955,
+    "ast_hash": "b7e7289188c0c3c8b1afaad0c1f2d52d",
+    "semantic_hash": "b7e7289188c0c3c8b1afaad0c1f2d52d"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-smoke.test.sh": {
+    "mtime": 1785115350.3098135,
+    "ast_hash": "6818a6bfb179dc501145d8728ddb166f",
+    "semantic_hash": "6818a6bfb179dc501145d8728ddb166f"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr-workspace-per-home-e2e.test.sh": {
+    "mtime": 1785115350.3099682,
+    "ast_hash": "b629c92e2184c73856435d834ec910b7",
+    "semantic_hash": "b629c92e2184c73856435d834ec910b7"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-herdr.test.sh": {
+    "mtime": 1785115350.3102803,
+    "ast_hash": "efc81f0e5b085fea04d62df770d89b82",
+    "semantic_hash": "efc81f0e5b085fea04d62df770d89b82"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-orca.test.sh": {
+    "mtime": 1785115350.3104787,
+    "ast_hash": "88325cdeec85ed96a4e52e93929f9a83",
+    "semantic_hash": "88325cdeec85ed96a4e52e93929f9a83"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-tmux-smoke.test.sh": {
+    "mtime": 1785115350.3105752,
+    "ast_hash": "c3fae8ee9fb1dd262f9b3f0b4a4e5142",
+    "semantic_hash": "c3fae8ee9fb1dd262f9b3f0b4a4e5142"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-zellij-smoke.test.sh": {
+    "mtime": 1785115350.3109288,
+    "ast_hash": "30bb1509611eaab46d2195259106f83e",
+    "semantic_hash": "30bb1509611eaab46d2195259106f83e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend-zellij.test.sh": {
+    "mtime": 1785115350.3110905,
+    "ast_hash": "38601722e1f5f390f1c45b865a1c5d41",
+    "semantic_hash": "38601722e1f5f390f1c45b865a1c5d41"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backend.test.sh": {
+    "mtime": 1785115350.3112938,
+    "ast_hash": "32bd77a084c9a71def30233e15eb7f90",
+    "semantic_hash": "32bd77a084c9a71def30233e15eb7f90"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-backlog-handoff.test.sh": {
+    "mtime": 1785115350.3114038,
+    "ast_hash": "c18c1118d7e2009c07c0f2b14dfb586c",
+    "semantic_hash": "c18c1118d7e2009c07c0f2b14dfb586c"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-bearings-snapshot.test.sh": {
+    "mtime": 1785115350.311605,
+    "ast_hash": "876158aecebe9b77ac95643652ce59f3",
+    "semantic_hash": "876158aecebe9b77ac95643652ce59f3"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-bootstrap.test.sh": {
+    "mtime": 1785115350.3117568,
+    "ast_hash": "7c8ea73ee8b8f92eb817e9feeb8a50df",
+    "semantic_hash": "7c8ea73ee8b8f92eb817e9feeb8a50df"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-brief.test.sh": {
+    "mtime": 1785115350.3118992,
+    "ast_hash": "4b7d2ca8afe2b59d60fd0649490e35dd",
+    "semantic_hash": "4b7d2ca8afe2b59d60fd0649490e35dd"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-captain-translation-contract.test.sh": {
+    "mtime": 1785115350.3119874,
+    "ast_hash": "b3c084b925bab91afba19b16f726f85a",
+    "semantic_hash": "b3c084b925bab91afba19b16f726f85a"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-cd-pretool-check.test.sh": {
+    "mtime": 1785115350.3120859,
+    "ast_hash": "1de61b39832b4af60416f5e7ab76b377",
+    "semantic_hash": "1de61b39832b4af60416f5e7ab76b377"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-composer-ghost.test.sh": {
+    "mtime": 1785115350.3122032,
+    "ast_hash": "d0734ec343af9f93525370ba81316ad7",
+    "semantic_hash": "d0734ec343af9f93525370ba81316ad7"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-composer-lib.test.sh": {
+    "mtime": 1785115350.312284,
+    "ast_hash": "9c4b6ddb1608e87850e4db3a03390d8b",
+    "semantic_hash": "9c4b6ddb1608e87850e4db3a03390d8b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-crew-state.test.sh": {
+    "mtime": 1785115350.3124173,
+    "ast_hash": "5af589cd0a4a244435a1ccf97f40a70f",
+    "semantic_hash": "5af589cd0a4a244435a1ccf97f40a70f"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-daemon.test.sh": {
+    "mtime": 1785115350.3126116,
+    "ast_hash": "12819a656b71510c39b5392cf3c4dda7",
+    "semantic_hash": "12819a656b71510c39b5392cf3c4dda7"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-decision-hold-lifecycle.test.sh": {
+    "mtime": 1785115350.3127303,
+    "ast_hash": "27bda32f674e149dd3e1dff4a5022ed8",
+    "semantic_hash": "27bda32f674e149dd3e1dff4a5022ed8"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-dispatch-select.test.sh": {
+    "mtime": 1785115350.312833,
+    "ast_hash": "280f995f9d3737870f7b456507acb58c",
+    "semantic_hash": "280f995f9d3737870f7b456507acb58c"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-ensure-agents-md.test.sh": {
+    "mtime": 1785115350.3137112,
+    "ast_hash": "859cbe279aa3e8de8f4f5b4f7142b3ba",
+    "semantic_hash": "859cbe279aa3e8de8f4f5b4f7142b3ba"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-fleet-snapshot-view.test.sh": {
+    "mtime": 1785115350.3138266,
+    "ast_hash": "39c00b5df4c2911d8f64727225724698",
+    "semantic_hash": "39c00b5df4c2911d8f64727225724698"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-fleet-sync.test.sh": {
+    "mtime": 1785115350.3139539,
+    "ast_hash": "d1cb570ce43ab9e6f0cfd791d661de0e",
+    "semantic_hash": "d1cb570ce43ab9e6f0cfd791d661de0e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-gate-refuse.test.sh": {
+    "mtime": 1785115350.3140512,
+    "ast_hash": "a7f9753199c506348d872f7b5e2c8a6a",
+    "semantic_hash": "a7f9753199c506348d872f7b5e2c8a6a"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-gotmp.test.sh": {
+    "mtime": 1785115350.3143375,
+    "ast_hash": "504c6df205cb52827fc3ae5376862c48",
+    "semantic_hash": "504c6df205cb52827fc3ae5376862c48"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-grok-harness.test.sh": {
+    "mtime": 1785115350.3144333,
+    "ast_hash": "195947c93d1a120e0918bcd81bd80357",
+    "semantic_hash": "195947c93d1a120e0918bcd81bd80357"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-guard-stale-banner.test.sh": {
+    "mtime": 1785115350.3147748,
+    "ast_hash": "d46567cc1b70775cb946843038752b8f",
+    "semantic_hash": "d46567cc1b70775cb946843038752b8f"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-herdr-lab.test.sh": {
+    "mtime": 1785115350.3150814,
+    "ast_hash": "0703f910386baab3c513ef7c369b4b54",
+    "semantic_hash": "0703f910386baab3c513ef7c369b4b54"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-instruction-owners.test.sh": {
+    "mtime": 1785115350.3152099,
+    "ast_hash": "9fd9a23c4e6f9038e04103cb0c148467",
+    "semantic_hash": "9fd9a23c4e6f9038e04103cb0c148467"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-lint.test.sh": {
+    "mtime": 1785115350.3153062,
+    "ast_hash": "edda1dce4d0afb431aab9246bed718f6",
+    "semantic_hash": "edda1dce4d0afb431aab9246bed718f6"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-no-mistakes-ownership.test.sh": {
+    "mtime": 1785115350.3153732,
+    "ast_hash": "f23460dd039cd39366c2ff4bd0e16a38",
+    "semantic_hash": "f23460dd039cd39366c2ff4bd0e16a38"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-pi-primary-live-e2e.test.sh": {
+    "mtime": 1785115350.3154523,
+    "ast_hash": "a3ffff862e9a2aebc2a2fba374acd9ee",
+    "semantic_hash": "a3ffff862e9a2aebc2a2fba374acd9ee"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-pi-primary-types.test.sh": {
+    "mtime": 1785115350.3155212,
+    "ast_hash": "27cb3afd54b52918e1747fd045c69810",
+    "semantic_hash": "27cb3afd54b52918e1747fd045c69810"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-pi-watch-extension.test.sh": {
+    "mtime": 1785115350.3156247,
+    "ast_hash": "27f12c75e24624b914e412e9eddfa93a",
+    "semantic_hash": "27f12c75e24624b914e412e9eddfa93a"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-pr-check-security.test.sh": {
+    "mtime": 1785115350.3158703,
+    "ast_hash": "4c48934c19f00b9f56a74c2135bd1802",
+    "semantic_hash": "4c48934c19f00b9f56a74c2135bd1802"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-pr-merge.test.sh": {
+    "mtime": 1785115350.3159912,
+    "ast_hash": "01922ad5415e3980264304689443b6db",
+    "semantic_hash": "01922ad5415e3980264304689443b6db"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-review-diff.test.sh": {
+    "mtime": 1785115350.316081,
+    "ast_hash": "09fee073a065392449133e2332dabd60",
+    "semantic_hash": "09fee073a065392449133e2332dabd60"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-secondmate-harness.test.sh": {
+    "mtime": 1785115350.316213,
+    "ast_hash": "95ba8854beb07e25f0b736fdfb9a248b",
+    "semantic_hash": "95ba8854beb07e25f0b736fdfb9a248b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-secondmate-lifecycle-e2e.test.sh": {
+    "mtime": 1785115350.3163352,
+    "ast_hash": "d0a33ccc29bcb62e348d6f7ae42c44f6",
+    "semantic_hash": "d0a33ccc29bcb62e348d6f7ae42c44f6"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-secondmate-liveness.test.sh": {
+    "mtime": 1785115350.3164427,
+    "ast_hash": "244c18eee6922d79e0918713f0d5b783",
+    "semantic_hash": "244c18eee6922d79e0918713f0d5b783"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-secondmate-safety.test.sh": {
+    "mtime": 1785115350.3166528,
+    "ast_hash": "43481a878c3eb2abb78ee0305dcc6d0d",
+    "semantic_hash": "43481a878c3eb2abb78ee0305dcc6d0d"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-secondmate-sync.test.sh": {
+    "mtime": 1785115350.3168058,
+    "ast_hash": "6304c3a5bb955605ef907d9cef99980e",
+    "semantic_hash": "6304c3a5bb955605ef907d9cef99980e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-send-popup-settle.test.sh": {
+    "mtime": 1785115350.3169236,
+    "ast_hash": "be332cd5b53708ff04371df5016b7e8e",
+    "semantic_hash": "be332cd5b53708ff04371df5016b7e8e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-send-secondmate-marker-herdr-e2e.test.sh": {
+    "mtime": 1785115350.3172045,
+    "ast_hash": "423605e8c487789843666806c8051f35",
+    "semantic_hash": "423605e8c487789843666806c8051f35"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-send-secondmate-marker.test.sh": {
+    "mtime": 1785115350.3173702,
+    "ast_hash": "20b73f4938226c85613981a513336d35",
+    "semantic_hash": "20b73f4938226c85613981a513336d35"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-send-settle.test.sh": {
+    "mtime": 1785115350.3174598,
+    "ast_hash": "df6a9f3a96b3b8230d907f3a0d697f29",
+    "semantic_hash": "df6a9f3a96b3b8230d907f3a0d697f29"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-send-strict.test.sh": {
+    "mtime": 1785115350.3175588,
+    "ast_hash": "2826e9a3cd026c1aabd44bd42ef49f21",
+    "semantic_hash": "2826e9a3cd026c1aabd44bd42ef49f21"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-session-start.test.sh": {
+    "mtime": 1785115350.3177204,
+    "ast_hash": "e013575444206833bcdfc218f201616f",
+    "semantic_hash": "e013575444206833bcdfc218f201616f"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-shared-captain-inheritance.test.sh": {
+    "mtime": 1785115350.3178601,
+    "ast_hash": "a2493a10d8b1a1a2c7f349d616002322",
+    "semantic_hash": "a2493a10d8b1a1a2c7f349d616002322"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-spawn-batch.test.sh": {
+    "mtime": 1785115350.317962,
+    "ast_hash": "bbde40099e1c03767503388f92afe058",
+    "semantic_hash": "bbde40099e1c03767503388f92afe058"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-spawn-dispatch-profile.test.sh": {
+    "mtime": 1785115350.3180788,
+    "ast_hash": "6a547c05520859f3ae5c210d17324a7e",
+    "semantic_hash": "6a547c05520859f3ae5c210d17324a7e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-stow-contract.test.sh": {
+    "mtime": 1785115350.318167,
+    "ast_hash": "01999d78ea13ea90f1de7541d4b7034e",
+    "semantic_hash": "01999d78ea13ea90f1de7541d4b7034e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-supervision-events.test.sh": {
+    "mtime": 1785115350.3182676,
+    "ast_hash": "592a022b7ef07ac9ed9a773b3f1afe5a",
+    "semantic_hash": "592a022b7ef07ac9ed9a773b3f1afe5a"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-supervision-instructions.test.sh": {
+    "mtime": 1785115350.3183796,
+    "ast_hash": "f22b7a4b7e9b4dd43eb4c1f8ee652a4a",
+    "semantic_hash": "f22b7a4b7e9b4dd43eb4c1f8ee652a4a"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-tangle-guard.test.sh": {
+    "mtime": 1785115350.3185163,
+    "ast_hash": "9168526cf9235b236b82493a304ff220",
+    "semantic_hash": "9168526cf9235b236b82493a304ff220"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-teardown.test.sh": {
+    "mtime": 1785115350.3186445,
+    "ast_hash": "7bad8482d9cc9fbb24320e35be3862cb",
+    "semantic_hash": "7bad8482d9cc9fbb24320e35be3862cb"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-transition-lib.test.sh": {
+    "mtime": 1785115350.3187277,
+    "ast_hash": "f12c186997b9ad994f4a1306f54d9acc",
+    "semantic_hash": "f12c186997b9ad994f4a1306f54d9acc"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-turnend-guard.test.sh": {
+    "mtime": 1785115350.3188522,
+    "ast_hash": "6b7c5d033cdfe3386b6e5df5f6c2463b",
+    "semantic_hash": "6b7c5d033cdfe3386b6e5df5f6c2463b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-update.test.sh": {
+    "mtime": 1785115350.3189895,
+    "ast_hash": "1cff11af554b2e45621a61c0b3499b4d",
+    "semantic_hash": "1cff11af554b2e45621a61c0b3499b4d"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-wake-daemon-lifecycle-e2e.test.sh": {
+    "mtime": 1785115350.3190935,
+    "ast_hash": "df676ece7bb01baa01b23020abc44b2c",
+    "semantic_hash": "df676ece7bb01baa01b23020abc44b2c"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-wake-queue.test.sh": {
+    "mtime": 1785115350.3192337,
+    "ast_hash": "73580098054954867a23d14babdc495b",
+    "semantic_hash": "73580098054954867a23d14babdc495b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-watch-checkpoint.test.sh": {
+    "mtime": 1785115350.319323,
+    "ast_hash": "41d2bc73fbdb34224f6ec6255e2f2f2c",
+    "semantic_hash": "41d2bc73fbdb34224f6ec6255e2f2f2c"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-watch-triage.test.sh": {
+    "mtime": 1785115350.3195024,
+    "ast_hash": "a983a5d9ba5ad8ce1c4f3b69bbb1b4f7",
+    "semantic_hash": "a983a5d9ba5ad8ce1c4f3b69bbb1b4f7"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-watcher-lock.test.sh": {
+    "mtime": 1785115350.3196526,
+    "ast_hash": "a6a91d6d38a710c27ee81b5db5c5e482",
+    "semantic_hash": "a6a91d6d38a710c27ee81b5db5c5e482"
+  },
+  "/Users/mac/aicoder/firstmate/tests/fm-x-mode.test.sh": {
+    "mtime": 1785115350.319984,
+    "ast_hash": "cce7617c01a743cceea59944bb7aca3c",
+    "semantic_hash": "cce7617c01a743cceea59944bb7aca3c"
+  },
+  "/Users/mac/aicoder/firstmate/tests/herdr-test-safety.sh": {
+    "mtime": 1785115350.3200662,
+    "ast_hash": "52e36086fd39d29f17b42b5c24e0830b",
+    "semantic_hash": "52e36086fd39d29f17b42b5c24e0830b"
+  },
+  "/Users/mac/aicoder/firstmate/tests/lib.sh": {
+    "mtime": 1785115350.3201802,
+    "ast_hash": "9c83a8f30f66df0389bd90fd202c2f76",
+    "semantic_hash": "9c83a8f30f66df0389bd90fd202c2f76"
+  },
+  "/Users/mac/aicoder/firstmate/tests/secondmate-helpers.sh": {
+    "mtime": 1785115350.3202655,
+    "ast_hash": "4c2c2adffb7144fd159bba534616d9ab",
+    "semantic_hash": "4c2c2adffb7144fd159bba534616d9ab"
+  },
+  "/Users/mac/aicoder/firstmate/tests/wake-helpers.sh": {
+    "mtime": 1785115350.3204453,
+    "ast_hash": "02781d3249e7403f02b5cc917fcf0d5e",
+    "semantic_hash": "02781d3249e7403f02b5cc917fcf0d5e"
+  },
+  "/Users/mac/aicoder/firstmate/tests/zellij-test-safety.sh": {
+    "mtime": 1785115350.3205245,
+    "ast_hash": "0155366a791256be0b2afec22fa575f7",
+    "semantic_hash": "0155366a791256be0b2afec22fa575f7"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/afk/SKILL.md": {
+    "mtime": 1785115350.2836463,
+    "ast_hash": "8ddde027a7a08d5efd5e20316582448e",
+    "semantic_hash": "8ddde027a7a08d5efd5e20316582448e"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/axi/SKILL.md": {
+    "mtime": 1785115350.283862,
+    "ast_hash": "e943907eef1b9c71a3f8096fd18b3961",
+    "semantic_hash": "e943907eef1b9c71a3f8096fd18b3961"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/bearings/SKILL.md": {
+    "mtime": 1785115350.2840931,
+    "ast_hash": "fa0c372aaf2d03c4f5fa5040ceca7058",
+    "semantic_hash": "fa0c372aaf2d03c4f5fa5040ceca7058"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/bootstrap-diagnostics/SKILL.md": {
+    "mtime": 1785115350.2844822,
+    "ast_hash": "c787074e80a4b4f44aeaea10ca5cb17e",
+    "semantic_hash": "c787074e80a4b4f44aeaea10ca5cb17e"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/decision-hold-lifecycle/SKILL.md": {
+    "mtime": 1785115350.2846072,
+    "ast_hash": "42f007d2ce7d886813e0427840736da0",
+    "semantic_hash": "42f007d2ce7d886813e0427840736da0"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/diagnostic-reasoning/SKILL.md": {
+    "mtime": 1785115350.284727,
+    "ast_hash": "46b1daa23d3e5431bc15a4725dfdfce7",
+    "semantic_hash": "46b1daa23d3e5431bc15a4725dfdfce7"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/firstmate-codexapp/SKILL.md": {
+    "mtime": 1785115350.2848682,
+    "ast_hash": "9db01d0b553b0d986e8041909e7c045c",
+    "semantic_hash": "9db01d0b553b0d986e8041909e7c045c"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/firstmate-codexapp/agents/openai.yaml": {
+    "mtime": 1785115350.2849731,
+    "ast_hash": "32504e38d59ed42a334b4ecccea1565c",
+    "semantic_hash": "32504e38d59ed42a334b4ecccea1565c"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/firstmate-coding-guidelines/SKILL.md": {
+    "mtime": 1785115350.2851067,
+    "ast_hash": "3f046aa985106d0f72bc83abf09d0766",
+    "semantic_hash": "3f046aa985106d0f72bc83abf09d0766"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/firstmate-orca/SKILL.md": {
+    "mtime": 1785115350.2852275,
+    "ast_hash": "be1e20b659bf34ed2fc7c09e87a2cf1f",
+    "semantic_hash": "be1e20b659bf34ed2fc7c09e87a2cf1f"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/fmx-respond/SKILL.md": {
+    "mtime": 1785115350.2854185,
+    "ast_hash": "3715bdfca5fe489322be47db214c7014",
+    "semantic_hash": "3715bdfca5fe489322be47db214c7014"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/harness-adapters/SKILL.md": {
+    "mtime": 1785115350.2856195,
+    "ast_hash": "a651fc36967823e36fcfe76f7b4ac687",
+    "semantic_hash": "a651fc36967823e36fcfe76f7b4ac687"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/project-management/SKILL.md": {
+    "mtime": 1785115350.2857556,
+    "ast_hash": "ec931091f3274468d1787bda3b6704b7",
+    "semantic_hash": "ec931091f3274468d1787bda3b6704b7"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/secondmate-provisioning/SKILL.md": {
+    "mtime": 1785115350.2859285,
+    "ast_hash": "dc31fb4f603b469fecdfd92c00231081",
+    "semantic_hash": "dc31fb4f603b469fecdfd92c00231081"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/stow/SKILL.md": {
+    "mtime": 1785115350.2860599,
+    "ast_hash": "a739664d6c544e2b949f97569a580327",
+    "semantic_hash": "a739664d6c544e2b949f97569a580327"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/stuck-crewmate-recovery/SKILL.md": {
+    "mtime": 1785115350.2861674,
+    "ast_hash": "b76cca2f4717c5503a1d6310de485c69",
+    "semantic_hash": "b76cca2f4717c5503a1d6310de485c69"
+  },
+  "/Users/mac/aicoder/firstmate/.agents/skills/updatefirstmate/SKILL.md": {
+    "mtime": 1785115350.2862937,
+    "ast_hash": "7eb509fb58351d52c4f54e8370b4fb91",
+    "semantic_hash": "7eb509fb58351d52c4f54e8370b4fb91"
+  },
+  "/Users/mac/aicoder/firstmate/.github/workflows/ci.yml": {
+    "mtime": 1785115350.2872236,
+    "ast_hash": "0f0eee6d57cf311f00217ad8a447141e",
+    "semantic_hash": "0f0eee6d57cf311f00217ad8a447141e"
+  },
+  "/Users/mac/aicoder/firstmate/.github/workflows/no-mistakes-required.yml": {
+    "mtime": 1785115350.2872894,
+    "ast_hash": "c4c79df239835c5ec7aec0170ca7dc55",
+    "semantic_hash": "c4c79df239835c5ec7aec0170ca7dc55"
+  },
+  "/Users/mac/aicoder/firstmate/.no-mistakes.yaml": {
+    "mtime": 1785115350.2876906,
+    "ast_hash": "1680386f15df21f6515eaffbc8bbb5e1",
+    "semantic_hash": "1680386f15df21f6515eaffbc8bbb5e1"
+  },
+  "/Users/mac/aicoder/firstmate/AGENTS.md": {
+    "mtime": 1785115350.2887094,
+    "ast_hash": "a2e397fdf27efeb594a2de0f2ab89584",
+    "semantic_hash": "a2e397fdf27efeb594a2de0f2ab89584"
+  },
+  "/Users/mac/aicoder/firstmate/CLAUDE.md": {
+    "mtime": 1785115350.2887094,
+    "ast_hash": "a2e397fdf27efeb594a2de0f2ab89584",
+    "semantic_hash": "a2e397fdf27efeb594a2de0f2ab89584"
+  },
+  "/Users/mac/aicoder/firstmate/CONTRIBUTING.md": {
+    "mtime": 1785115350.2888904,
+    "ast_hash": "d55d5dd66702125b0edf17338292f5e4",
+    "semantic_hash": "d55d5dd66702125b0edf17338292f5e4"
+  },
+  "/Users/mac/aicoder/firstmate/README.md": {
+    "mtime": 1785115350.2890937,
+    "ast_hash": "6e6a9a7be4dcda8aca2076ddfba11370",
+    "semantic_hash": "6e6a9a7be4dcda8aca2076ddfba11370"
+  },
+  "/Users/mac/aicoder/firstmate/docs/architecture-explainer.html": {
+    "mtime": 1785115350.3035583,
+    "ast_hash": "32c4b8e23fcf7c2bc88f2b4c222a1a77",
+    "semantic_hash": "32c4b8e23fcf7c2bc88f2b4c222a1a77"
+  },
+  "/Users/mac/aicoder/firstmate/docs/architecture.md": {
+    "mtime": 1785115350.3037689,
+    "ast_hash": "19e0e13c4c47a53931aa6dc088b9b275",
+    "semantic_hash": "19e0e13c4c47a53931aa6dc088b9b275"
+  },
+  "/Users/mac/aicoder/firstmate/docs/arm-pretool-check.md": {
+    "mtime": 1785115350.303878,
+    "ast_hash": "909a43c5bbfc5384beb92ecf4e3c1133",
+    "semantic_hash": "909a43c5bbfc5384beb92ecf4e3c1133"
+  },
+  "/Users/mac/aicoder/firstmate/docs/cd-guard.md": {
+    "mtime": 1785115350.3041039,
+    "ast_hash": "32a96e553f13753d5eb7e14a7ab7ec1c",
+    "semantic_hash": "32a96e553f13753d5eb7e14a7ab7ec1c"
+  },
+  "/Users/mac/aicoder/firstmate/docs/cmux-backend.md": {
+    "mtime": 1785115350.3042572,
+    "ast_hash": "a7f31c766c737a01299889dc8597c8df",
+    "semantic_hash": "a7f31c766c737a01299889dc8597c8df"
+  },
+  "/Users/mac/aicoder/firstmate/docs/codex-app-backend.md": {
+    "mtime": 1785115350.3045568,
+    "ast_hash": "3bb22f23a2c8a71ef475b7d5dba569a5",
+    "semantic_hash": "3bb22f23a2c8a71ef475b7d5dba569a5"
+  },
+  "/Users/mac/aicoder/firstmate/docs/configuration.md": {
+    "mtime": 1785115350.3048785,
+    "ast_hash": "ef5caa1c2e0ffeab05f59c44888af562",
+    "semantic_hash": "ef5caa1c2e0ffeab05f59c44888af562"
+  },
+  "/Users/mac/aicoder/firstmate/docs/decision-hold-lifecycle.md": {
+    "mtime": 1785115350.304984,
+    "ast_hash": "d31843960c324e2ca2b389299904d909",
+    "semantic_hash": "d31843960c324e2ca2b389299904d909"
+  },
+  "/Users/mac/aicoder/firstmate/docs/herdr-backend.md": {
+    "mtime": 1785115350.3054664,
+    "ast_hash": "5e16bdfc77f362f074893e82cb7c52f6",
+    "semantic_hash": "5e16bdfc77f362f074893e82cb7c52f6"
+  },
+  "/Users/mac/aicoder/firstmate/docs/orca-backend.md": {
+    "mtime": 1785115350.305773,
+    "ast_hash": "76d331e6bd56e42c425564059b608c6d",
+    "semantic_hash": "76d331e6bd56e42c425564059b608c6d"
+  },
+  "/Users/mac/aicoder/firstmate/docs/scripts.md": {
+    "mtime": 1785115350.3060055,
+    "ast_hash": "d7d3c5c63b6658c059bf20286ddb8907",
+    "semantic_hash": "d7d3c5c63b6658c059bf20286ddb8907"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/claude.md": {
+    "mtime": 1785115350.3061216,
+    "ast_hash": "f2236a127924cb3bebea4a16b31fee11",
+    "semantic_hash": "f2236a127924cb3bebea4a16b31fee11"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/codex.md": {
+    "mtime": 1785115350.30619,
+    "ast_hash": "d293acc0ffd1a4cfd5fec1778ebf88ae",
+    "semantic_hash": "d293acc0ffd1a4cfd5fec1778ebf88ae"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/grok.md": {
+    "mtime": 1785115350.3062549,
+    "ast_hash": "6d1cb26a9beed0a6bf0180069b63fc22",
+    "semantic_hash": "6d1cb26a9beed0a6bf0180069b63fc22"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/opencode.md": {
+    "mtime": 1785115350.306326,
+    "ast_hash": "6a22ae3ea8d703d8d651b8fc4dac5cb3",
+    "semantic_hash": "6a22ae3ea8d703d8d651b8fc4dac5cb3"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/pi.md": {
+    "mtime": 1785115350.3064146,
+    "ast_hash": "1c432a8d5027f215546ede3e5a139edf",
+    "semantic_hash": "1c432a8d5027f215546ede3e5a139edf"
+  },
+  "/Users/mac/aicoder/firstmate/docs/supervision-protocols/unknown.md": {
+    "mtime": 1785115350.3065298,
+    "ast_hash": "aeaa92d610e6fe518ee1479bdd854db2",
+    "semantic_hash": "aeaa92d610e6fe518ee1479bdd854db2"
+  },
+  "/Users/mac/aicoder/firstmate/docs/tmux-backend.md": {
+    "mtime": 1785115350.3067307,
+    "ast_hash": "ace89d7a362a14890a32f72e3da5e2a8",
+    "semantic_hash": "ace89d7a362a14890a32f72e3da5e2a8"
+  },
+  "/Users/mac/aicoder/firstmate/docs/turnend-guard.md": {
+    "mtime": 1785115350.3068707,
+    "ast_hash": "7a4db11ee39430c9e0d0348223c4365e",
+    "semantic_hash": "7a4db11ee39430c9e0d0348223c4365e"
+  },
+  "/Users/mac/aicoder/firstmate/docs/wedge-alarm.md": {
+    "mtime": 1785115350.3069818,
+    "ast_hash": "e8089b52e123974a1be7ec8171923572",
+    "semantic_hash": "e8089b52e123974a1be7ec8171923572"
+  },
+  "/Users/mac/aicoder/firstmate/docs/zellij-backend.md": {
+    "mtime": 1785115350.3071265,
+    "ast_hash": "e56e3bb4fedd27e47dd5f66c2f738e58",
+    "semantic_hash": "e56e3bb4fedd27e47dd5f66c2f738e58"
+  },
+  "/Users/mac/aicoder/firstmate/skills/stow/SKILL.md": {
+    "mtime": 1785115350.3076682,
+    "ast_hash": "7f828cdf59e19edd3b961ea4c7e56d35",
+    "semantic_hash": "7f828cdf59e19edd3b961ea4c7e56d35"
+  },
+  "/Users/mac/aicoder/firstmate/assets/banner.png": {
+    "mtime": 1785115350.2934766,
+    "ast_hash": "9f7ad70f468713165b9b4d9fd1c1c40b",
+    "semantic_hash": "9f7ad70f468713165b9b4d9fd1c1c40b"
+  }
+}

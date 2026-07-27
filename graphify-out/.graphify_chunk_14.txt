@@ -1,0 +1,5 @@
+/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-cd-check.js
+/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-pretool-check.js
+/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-turnend-guard.js
+/Users/mac/aicoder/firstmate/.opencode/plugins/fm-primary-watch-arm.js
+/Users/mac/aicoder/firstmate/.opencode/plugins/package.json

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "bin_fm_secondmate_harness_ff_lib", "label": "Fast-Forward Library", "file_type": "code", "source_file": "bin/fm-ff-lib.sh"}, {"id": "bin_fm_ff_lib_sh_fm_ff_lib", "label": "fm-ff-lib.sh - Fast-forward library for git operations", "file_type": "code", "source_file": "bin/fm-ff-lib.sh"}], "edges": [], "hyperedges": []}

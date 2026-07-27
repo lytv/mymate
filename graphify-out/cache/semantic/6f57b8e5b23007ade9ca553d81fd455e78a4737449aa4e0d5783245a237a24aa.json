@@ -1,0 +1,1 @@
+{"nodes": [{"id": "tests_fm_send_settle_pause", "label": "Post-Submit Settle Pause", "file_type": "concept", "source_file": "tests/fm-send-settle.test.sh", "rationale": "FM_SEND_SETTLE controls post-submit settle pause (default 1s). Zero disables. Tunable via env var. --key path never pauses."}], "edges": [], "hyperedges": []}

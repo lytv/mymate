@@ -1,0 +1,8 @@
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/current.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784280331140.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784531755115.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784598901856.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784599647399.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784601086883.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784601173858.json
+/Users/mac/aicoder/firstmate/.claude-flow/sessions/session-1784606325843.json

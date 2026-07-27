@@ -1,0 +1,6 @@
+/Users/mac/aicoder/firstmate/bin/backends/cmux.sh
+/Users/mac/aicoder/firstmate/bin/backends/herdr-eventwait.py
+/Users/mac/aicoder/firstmate/bin/backends/herdr.sh
+/Users/mac/aicoder/firstmate/bin/backends/orca.sh
+/Users/mac/aicoder/firstmate/bin/backends/tmux.sh
+/Users/mac/aicoder/firstmate/bin/backends/zellij.sh

@@ -1,0 +1,14 @@
+{
+  "id": "session-1785115659689",
+  "startedAt": "2026-07-27T01:27:39.689Z",
+  "cwd": "/Users/mac/aicoder/firstmate",
+  "context": {},
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-07-27T01:27:43.646Z",
+  "duration": 3958
+}

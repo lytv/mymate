@@ -1,0 +1,6 @@
+/Users/mac/aicoder/firstmate/skills-lock.json
+/Users/mac/aicoder/firstmate/.no-mistakes.yaml
+/Users/mac/aicoder/firstmate/AGENTS.md
+/Users/mac/aicoder/firstmate/CLAUDE.md
+/Users/mac/aicoder/firstmate/CONTRIBUTING.md
+/Users/mac/aicoder/firstmate/README.md

@@ -337,6 +337,19 @@ test_dispatch_composer_state_routes_cmux() {
   pass "fm_backend_composer_state: routes cmux to the cmux composer classifier"
 }
 
+test_dispatch_composer_state_uses_recorded_cline_provenance() {
+  local dir fb out target
+  dir="$TMP_ROOT/dispatch-cline-composer"; mkdir -p "$dir/responses"
+  target="aaaaaaaa-0000-0000-0000-000000000000:bbbbbbbb-1111-1111-1111-111111111111"
+  cmux_panes_response "$dir" 1 "bbbbbbbb-1111-1111-1111-111111111111"
+  cmux_read_screen_response "$dir" 2 $'──────────────────────────────────────────────────\n❯ Ask anything...\n──────────────────────────────────────────────────'
+  fb=$(make_cmux_fakebin "$dir")
+  out=$( PATH="$fb:$PATH" FM_CMUX_LOG="$dir/log" FM_CMUX_RESPONSES="$dir/responses" \
+    bash -c '. "$0/bin/fm-backend.sh"; fm_backend_composer_state cmux "$1" "" cline' "$ROOT" "$target" )
+  [ "$out" = empty ] || fail "recorded Cline provenance should confirm its idle composer, got '$out'"
+  pass "fm_backend_composer_state: recorded Cline provenance confirms the cmux idle composer"
+}
+
 # --- ping_state / ensure_running ---------------------------------------------
 
 test_ping_state_ok() {
@@ -1120,6 +1133,7 @@ test_scoped_title_changes_with_root_path
 test_dispatch_routes_cmux_backend
 test_dispatch_busy_state_unknown_for_cmux
 test_dispatch_composer_state_routes_cmux
+test_dispatch_composer_state_uses_recorded_cline_provenance
 test_ping_state_ok
 test_ping_state_denied
 test_ping_state_unauth

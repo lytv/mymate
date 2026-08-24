@@ -1197,12 +1197,13 @@ EOF
 
 fm_composer_classify_screen() {  # <caps> <screen> [cursor_row] [identity]
   local caps=$1 screen=$2 cy=${3:-} identity=${4:-}
-  local styled=0 cursor=0 has_identity=0 kv plain
+  local styled=0 cursor=0 has_identity=0 harness='' kv plain
   while IFS= read -r kv; do
     case "$kv" in
       styled=1) styled=1 ;;
       cursor=1) cursor=1 ;;
       identity=1) has_identity=1 ;;
+      harness=*) harness=${kv#harness=} ;;
     esac
   done <<EOF
 $caps
@@ -1234,7 +1235,7 @@ EOF
       if [ "$FM_COMPOSER_SCAN_PI_PAIR_FOUND" = 1 ] \
          && [ "$cy" -gt "$FM_COMPOSER_SCAN_PI_OPEN" ] \
          && [ "$cy" -lt "$FM_COMPOSER_SCAN_PI_CLOSE" ]; then
-        _fm_composer_classify_bare_pi_overlap "$screen" "$styled" "$has_identity" "$identity" "$cy"
+        _fm_composer_classify_bare_pi_overlap "$screen" "$styled" "$has_identity" "$identity" "$cy" "$harness"
       else
         _fm_composer_classify_bare_row "$screen" "$styled" "$cy"
       fi
@@ -1290,7 +1291,7 @@ EOF
          && [ "$FM_COMPOSER_SCAN_BARE_ROW" -gt "$FM_COMPOSER_SCAN_PI_OPEN" ] \
          && [ "$FM_COMPOSER_SCAN_BARE_ROW" -lt "$FM_COMPOSER_SCAN_PI_CLOSE" ]; then
         _fm_composer_classify_bare_pi_overlap "$screen" "$styled" "$has_identity" "$identity" \
-          "$FM_COMPOSER_SCAN_BARE_ROW"
+          "$FM_COMPOSER_SCAN_BARE_ROW" "$harness"
       else
         _fm_composer_classify_bare_row "$screen" "$styled" "$FM_COMPOSER_SCAN_BARE_ROW"
       fi
@@ -1299,6 +1300,13 @@ EOF
       _fm_composer_classify_leftbar "$screen" "$styled" \
         "$FM_COMPOSER_SELECTED_FIRST" "$FM_COMPOSER_SELECTED_LAST"
       ;;
+  esac
+}
+
+fm_composer_caps_with_harness() {  # <caps> [harness]
+  printf '%s' "$1"
+  case "${2:-}" in
+    cline|cline-*) printf '\nharness=cline' ;;
   esac
 }
 
@@ -1313,12 +1321,12 @@ EOF
 # stays a loud refusal rather than a blind retry into an unreadable pane.
 # tmux and herdr keep richer cores that consume this same shared verdict plus
 # fm_composer_queued_enter_verdict; no shape knowledge lives in any loop.
-fm_composer_submit_retry_core() {  # <send-key-fn> <state-fn> <target> <retries> <enter-sleep> [expected-label]
-  local send_key_fn=$1 state_fn=$2 target=$3 retries=$4 sleep_s=$5 expected_label=${6:-} i=0 state
+fm_composer_submit_retry_core() {  # <send-key-fn> <state-fn> <target> <retries> <enter-sleep> [expected-label] [harness]
+  local send_key_fn=$1 state_fn=$2 target=$3 retries=$4 sleep_s=$5 expected_label=${6:-} harness=${7:-} i=0 state
   while :; do
     "$send_key_fn" "$target" Enter "$expected_label" || true
     sleep "$sleep_s"
-    state=$("$state_fn" "$target" "$expected_label")
+    state=$("$state_fn" "$target" "$expected_label" "$harness")
     case "$state" in
       pending|pending-unproven) ;;
       *) printf '%s' "$state"; return 0 ;;
@@ -1388,9 +1396,10 @@ _fm_composer_separated_agent_idle() {  # <screen> <styled> <row>
     "${FM_COMPOSER_IDLE_RE:-$FM_COMPOSER_IDLE_RE_DEFAULT}" insensitive
 }
 
-_fm_composer_classify_bare_pi_overlap() {  # <screen> <styled> <has-identity> <identity> <bare-row>
-  local screen=$1 styled=$2 has_identity=$3 identity=$4 row=$5 agent
+_fm_composer_classify_bare_pi_overlap() {  # <screen> <styled> <has-identity> <identity> <bare-row> <harness>
+  local screen=$1 styled=$2 has_identity=$3 identity=$4 row=$5 harness=${6:-} agent
   if _fm_composer_separated_agent_idle "$screen" "$styled" "$row"; then
+    case "$harness" in cline|cline-*) printf 'empty'; return 0 ;; esac
     if [ "$has_identity" != 1 ]; then
       printf 'unknown'
       return 0

@@ -183,7 +183,7 @@ test_harness_ancestry_matches_only_cline_node_paths() {
   command -v node >/dev/null 2>&1 || return 0
   local root path out
   root="$TMP_ROOT/cline-paths"
-  for path in "$root/decline/index.js" "$root/cline.js" "$root/node_modules/cline/dist/index.js"; do
+  for path in "$root/decline/index.js" "$root/cline.js" "$root/pi" "$root/node_modules/cline/dist/index.js"; do
     mkdir -p "$(dirname "$path")"
     cat > "$path" <<'JS'
 const { spawnSync } = require('child_process');
@@ -197,6 +197,8 @@ JS
   [ "$out" != cline ] || fail "an unrelated node path must not identify as cline"
   out=$(node "$root/cline.js" "$HARNESS")
   [ "$out" != cline ] || fail "an unrelated cline.js script must not identify as cline"
+  out=$(node "$root/pi" "$HARNESS")
+  [ "$out" = pi ] || fail "a Node Pi script must still identify as pi, got '$out'"
   out=$(node "$root/node_modules/cline/dist/index.js" "$HARNESS")
   [ "$out" = cline ] || fail "a node path under cline must identify as cline, got '$out'"
   pass "Cline node ancestry and tmux liveness require exact path evidence"

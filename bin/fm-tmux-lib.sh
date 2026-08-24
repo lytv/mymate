@@ -137,17 +137,18 @@ EOF
 # is fetched lazily, only when the classifier reports the verdict depends on
 # it (a pi separator pair under the cursor), so the common read never pays
 # for the process probe.
-fm_tmux_composer_state() {  # <target> -> empty|pending|pending-unproven|unknown
-  local target=$1 cy pane verdict identity
+fm_tmux_composer_state() {  # <target> [expected-label] [harness] -> empty|pending|pending-unproven|unknown
+  local target=$1 harness=${3:-} cy pane verdict identity caps
   cy=$(fm_tmux_composer_cursor_row "$target") || { printf 'unknown'; return 0; }
   case "$cy" in ''|*[!0-9]*) printf 'unknown'; return 0 ;; esac
   pane=$(fm_tmux_composer_capture "$target") || { printf 'unknown'; return 0; }
-  verdict=$(fm_composer_classify_screen "$(fm_tmux_composer_caps)" "$pane" "$cy")
+  caps=$(fm_composer_caps_with_harness "$(fm_tmux_composer_caps)" "$harness")
+  verdict=$(fm_composer_classify_screen "$caps" "$pane" "$cy")
   if [ "$verdict" = need-identity ]; then
     if ! identity=$(fm_tmux_composer_identity "$target") || [ -z "$identity" ]; then
       identity=probe-absent
     fi
-    verdict=$(fm_composer_classify_screen "$(fm_tmux_composer_caps)" "$pane" "$cy" "$identity")
+    verdict=$(fm_composer_classify_screen "$caps" "$pane" "$cy" "$identity")
     [ "$verdict" != need-identity ] || verdict=unknown
   fi
   # Cursor Agent CLI parks its terminal cursor OUTSIDE its composer, below the
@@ -239,12 +240,12 @@ fm_pane_is_busy() {  # <target> [harness]
 # fm_tmux_submit_enter_core caller, or a pane already busy before typing) an
 # `unknown` verdict is preserved untouched: busy conversion without the
 # transition evidence could mark an undelivered message delivered.
-fm_tmux_submit_enter_core() {  # <target> <retries> <enter-sleep> [baseline-idle]
-  local target=$1 retries=$2 sleep_s=$3 baseline_idle=${4:-} i=0 j state busy_state
+fm_tmux_submit_enter_core() {  # <target> <retries> <enter-sleep> [baseline-idle] [harness]
+  local target=$1 retries=$2 sleep_s=$3 baseline_idle=${4:-} harness=${5:-} i=0 j state busy_state
   while :; do
     tmux send-keys -t "$target" Enter 2>/dev/null || true
     sleep "$sleep_s"
-    state=$(fm_tmux_composer_state "$target")
+    state=$(fm_tmux_composer_state "$target" '' "$harness")
     case "$state" in
       pending|pending-unproven) ;;
       unknown)
@@ -278,8 +279,8 @@ fm_tmux_submit_enter_core() {  # <target> <retries> <enter-sleep> [baseline-idle
   fm_composer_queued_enter_verdict "$state" "$busy_state"
 }
 
-fm_tmux_submit_core() {  # <target> <text> <retries> <enter-sleep> <settle>
-  local target=$1 text=$2 retries=$3 sleep_s=$4 settle=$5 baseline_idle='' baseline_state
+fm_tmux_submit_core() {  # <target> <text> <retries> <enter-sleep> <settle> [expected-label] [harness]
+  local target=$1 text=$2 retries=$3 sleep_s=$4 settle=$5 harness=${7:-} baseline_idle='' baseline_state
   # The turn-started baseline must predate our own typing: a pane already
   # busy before the text lands can turn "busy" for reasons unrelated to our
   # Enter, so only a clean idle-to-busy transition may confirm a submit.
@@ -287,5 +288,5 @@ fm_tmux_submit_core() {  # <target> <text> <retries> <enter-sleep> <settle>
   [ "$baseline_state" = idle ] && baseline_idle=1
   tmux send-keys -t "$target" -l "$text" 2>/dev/null || { printf 'send-failed'; return 0; }
   sleep "$settle"
-  fm_tmux_submit_enter_core "$target" "$retries" "$sleep_s" "$baseline_idle"
+  fm_tmux_submit_enter_core "$target" "$retries" "$sleep_s" "$baseline_idle" "$harness"
 }

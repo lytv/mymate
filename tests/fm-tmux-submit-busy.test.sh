@@ -255,6 +255,23 @@ test_unrecognized_state_skips_busy_conversion() {
   pass "fm_tmux_submit_enter_core: unrecognized states skip busy conversion"
 }
 
+test_cline_submit_uses_recorded_provenance() {
+  local dir fakebin composer sent vfile
+  dir="$TMP_ROOT/cline-provenance"
+  fakebin=$(make_submit_mock "$dir")
+  composer="$dir/composer"
+  sent="$dir/sent.log"
+  vfile="$dir/verdict"
+  printf '──────────────────────────────────────────────────\n❯ Ask anything...\n──────────────────────────────────────────────────\n' > "$composer"
+  : > "$sent"
+  touch "$dir/.swallow"
+  PATH="$fakebin:$PATH" FM_FAKE_COMPOSER="$composer" FM_FAKE_SENT="$sent" \
+    FM_FAKE_SWALLOW="$dir/.swallow" FM_FAKE_PERSIST_SWALLOW=1 \
+    fm_tmux_submit_core win "follow up" 1 0.01 0.01 '' cline > "$vfile" 2>/dev/null
+  [ "$(cat "$vfile")" = empty ] || fail "recorded Cline provenance must confirm the restored idle composer"
+  pass "fm_tmux_submit_core: recorded Cline provenance confirms a restored idle composer"
+}
+
 test_claude_busy_signature_uses_real_capture_shapes() {
   local dir fakebin composer
   dir="$TMP_ROOT/claude-signature"
@@ -337,4 +354,5 @@ test_busy_pane_unknown_stays_unknown
 test_failed_baseline_capture_keeps_busy_unknown_unconfirmed
 test_busy_pane_ambiguous_pending_retries_without_conversion
 test_unrecognized_state_skips_busy_conversion
+test_cline_submit_uses_recorded_provenance
 test_claude_busy_signature_uses_real_capture_shapes

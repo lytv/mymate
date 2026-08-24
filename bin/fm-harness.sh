@@ -103,19 +103,21 @@ detect_own() {
       node*|python*)
         # Bare interpreter: match the harness name in its script path.
         args=$(ps -o args= -p "$pid" 2>/dev/null)
+        read -r -a argv <<< "$args"
+        case "${argv[1]:-}" in
+          pi|*/pi) echo pi; return ;;
+        esac
         case "$args" in
           *claude*) echo claude; return ;;
           *codex*) echo codex; return ;;
           *opencode*) echo opencode; return ;;
           *grok*) echo grok; return ;;
           *)
-            read -r -a argv <<< "$args"
             if fm_cline_path_matches "${argv[@]}"; then
               echo cline
               return
             fi
             ;;
-          *" pi "*|*/pi) echo pi; return ;;
         esac ;;
     esac
     pid=$(ps -o ppid= -p "$pid" 2>/dev/null | tr -d ' ')

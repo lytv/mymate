@@ -76,6 +76,12 @@ fm_backend_agent_state tmux museliv:zsh
 alive
 ```
 
+The crewmate/scout-only Cline 3.0.55 adapter was verified on 2026-08-24 against tmux on macOS arm64.
+The TUI ran as a Node process with a script path under `node_modules/cline/`, and `fm_backend_agent_state` returned `alive`.
+An exact `cline` executable name or that package-path evidence identifies Cline.
+An unrelated Node script, including `cline.js` or a path that only contains `cline`, remains ambiguous.
+The portable regression is `tests/fm-cursor-harness.test.sh` and `tests/fm-tmux-agent-liveness.test.sh`.
+
 `#{pane_current_command}` and foreground `ps -o comm=` read different name fields, but which one preserves executable identity is platform-dependent.
 On macOS the pane command reflected the rewritable title while the full install path could survive in `ps -o comm=`; in the Linux portable regression those roles reversed for the version-named native executable, with the identifying path retained in argv[0].
 The classifier therefore accepts a harness basename first, then an exact harness path component in the full executable path, then the same component in argv[0], without depending on which field carries it on a given platform.
@@ -138,6 +144,7 @@ Both recorded runtime identities now classify the exact `pi-launcher` foreground
 
 Backend applicability was reviewed across every spawn adapter.
 Tmux needs the exact `pi-launcher`, `pi-signed`, `pi`, and `Pi` process identities for recovery-grade liveness.
+Tmux identifies Cline from the exact executable name or its verified Node package path.
 Herdr uses native registered-agent state and needs no process-name branch.
 Zellij has no verified recovery-grade agent process probe, while Orca and cmux do not support secondmate spawns, so those three retain their existing generic ordinary-launch semantics without a new liveness matcher.
 
@@ -171,7 +178,7 @@ ok - fm-teardown: dedicated-socket invalid cleanup preserves target/control and 
 The dedicated tmux cell removed ambient tmux variables, required a socket-bound wrapper, kept one target and one independent control window, and proved the wrapper was not called for invalid metadata or a direct empty target.
 Valid cleanup removed only the exact task-bound target and left the control window live.
 The metadata-only validation covers tmux, Herdr, Zellij, Orca, and cmux before backend dispatch.
-Claude, Codex, OpenCode, Pi, pi-signed, Grok, Kimi, Cursor, and Muse share that backend cleanup boundary; their harness-specific hook files, tokens, transcript bindings, and session-log sidecars are cleaned only after it, so no harness needs a separate endpoint parser.
+Claude, Codex, OpenCode, Pi, pi-signed, Grok, Kimi, Cursor, Muse, and Cline share that backend cleanup boundary; their harness-specific hook files, tokens, transcript bindings, and session-log sidecars are cleaned only after it, so no harness needs a separate endpoint parser.
 
 ## Composer classification matrix
 

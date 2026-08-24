@@ -552,7 +552,7 @@ CREWMATE/SCOUT ONLY.
 | Interrupt | Single Escape. Returns to the idle composer placeholder; no clear key is needed. `Ctrl+C` exits rather than interrupting. |
 | Skill invocation | Natural language or slash; `/no-mistakes` not yet live-verified. |
 | Autonomy | `--auto-approve true` (footer: `Auto-approve all enabled`). |
-| Environment marker | None. Detection is process ancestry on exact basename `cline` or a node script path containing `cline`. The launch clears foreign primary markers. |
+| Environment marker | None. Detection is process ancestry on exact basename `cline` or a Node script path under `node_modules/cline/`. The launch clears foreign primary markers. |
 | Trust dialog | None observed on fresh worktrees; no trust flag is passed. |
 
 ### Launch

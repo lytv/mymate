@@ -76,6 +76,7 @@ SH
   chmod +x "$fakebin/timeout" "$fakebin/cursor-agent"
   make_spawn_pi_probe "$fakebin" pi
   make_spawn_pi_probe "$fakebin" pi-signed
+  fm_fake_exit0 "$fakebin" cline
   printf '%s\n' "$fakebin"
 }
 
@@ -718,6 +719,50 @@ test_pi_signed_missing_binary_refuses_before_endpoint_or_metadata() {
   pass "pi-signed refuses safely and actionably when the selected executable is unavailable"
 }
 
+test_cline_scout_threads_high_thinking() {
+  local rec id out status launch
+  id=profile-cline-scout-z8e
+  rec=$(make_spawn_case profile-cline-scout cline "$id")
+  read_case_record "$rec"
+
+  out=$(run_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR" \
+    --scout --harness cline --model cline-3 --effort high)
+  status=$?
+  expect_code 0 "$status" "Cline scout spawn with high thinking should succeed"
+  assert_contains "$out" "spawned $id harness=cline kind=scout" \
+    "Cline scout spawn did not report its harness and kind"
+  assert_meta_profile "$HOME_DIR/state/$id.meta" cline cline-3 high
+  launch=$(cat "$LAUNCH_LOG")
+  assert_contains "$launch" "'$FAKEBIN_DIR/cline' --tui --auto-approve true --model 'cline-3' --thinking 'high'" \
+    "Cline scout launch did not pass its interactive, approved, model, and high-thinking settings"
+  assert_contains "$launch" "\$(cat '$HOME_DIR/data/$id/brief.md')" \
+    "Cline scout launch did not pass its brief"
+  pass "Cline scout launch carries the requested high thinking setting into the interactive worker"
+}
+
+test_cline_missing_binary_refuses_before_endpoint_or_metadata() {
+  local rec id out status
+  id=profile-cline-missing-z8f
+  rec=$(make_spawn_case profile-cline-missing cline "$id")
+  read_case_record "$rec"
+  rm -f "$FAKEBIN_DIR/cline"
+  : > "$LAUNCH_LOG"
+
+  out=$(FM_ROOT_OVERRIDE='' FM_HOME="$HOME_DIR" \
+    FM_STATE_OVERRIDE="$HOME_DIR/state" FM_DATA_OVERRIDE="$HOME_DIR/data" \
+    FM_PROJECTS_OVERRIDE="$HOME_DIR/projects" FM_CONFIG_OVERRIDE="$HOME_DIR/config" \
+    FM_SPAWN_NO_GUARD=1 FM_FAKE_PANE_PATH="$WT_DIR" TMUX="fake,1,0" \
+    FM_FAKE_LAUNCH_LOG="$LAUNCH_LOG" PATH="$FAKEBIN_DIR:/usr/bin:/bin:/usr/sbin:/sbin" \
+    "$SPAWN" "$id" "$PROJ_DIR" --scout --harness cline 2>&1)
+  status=$?
+  expect_code 1 "$status" "a missing Cline executable should refuse the scout spawn"
+  assert_contains "$out" "cline executable not found on PATH" \
+    "missing Cline refusal did not state the actionable requirement"
+  assert_absent "$HOME_DIR/state/$id.meta" "missing Cline refusal wrote task metadata"
+  [ ! -s "$LAUNCH_LOG" ] || fail "missing Cline refusal typed a launch command"
+  pass "Cline refuses safely when its executable is unavailable"
+}
+
 test_pi_signed_persistent_secondmate_uses_pi_extensions_and_identity() {
   local rec id sm out status launch
   id=profile-pi-signed-secondmate-z8d
@@ -851,6 +896,8 @@ test_pi_threads_model_and_max_effort
 test_pi_tui_mode_probe_is_safe_for_old_and_new_pi
 test_pi_signed_threads_shared_pi_profile_and_preserves_identity
 test_pi_signed_missing_binary_refuses_before_endpoint_or_metadata
+test_cline_scout_threads_high_thinking
+test_cline_missing_binary_refuses_before_endpoint_or_metadata
 test_pi_signed_persistent_secondmate_uses_pi_extensions_and_identity
 test_batch_forwards_shared_profile_flags
 test_claude_forwards_firstmate_config_dir_when_set

@@ -3,7 +3,7 @@ name: harness-adapters
 description: >-
   Agent-only reference for firstmate harness operations.
   Use before spawning or recovering a crewmate or secondmate, handling a trust dialog, sending a harness-specific skill invocation, interrupting or exiting an agent, resuming an exited agent, or verifying a new harness adapter.
-  Contains verified facts for claude, codex, opencode, pi, pi-signed, grok, kimi, cursor, and muse.
+  Contains verified facts for claude, codex, opencode, pi, pi-signed, grok, kimi, cursor, muse, and cline.
 user-invocable: false
 metadata:
   internal: true
@@ -66,6 +66,7 @@ Grok selects native blocking or its pre-native bounded resume fallback from the 
 Kimi is outside the primary turn-end guard scope, while `docs/turnend-guard.md` owns its separate guarded global hook for crew wake signals.
 muse is CREWMATE/SCOUT ONLY and has no primary integration at all: its plugin engine (its only hook surface) is disabled in the default build, and its Claude-compatible hook dialect names `asyncRewake` and model reawakening as explicitly unsupported, which is exactly what a firstmate primary's turn-end supervision needs.
 `bin/fm-spawn.sh` refuses a `--secondmate` launch on muse for that reason.
+cline is likewise CREWMATE/SCOUT ONLY: it has no verified primary turn-end hook yet, and `bin/fm-spawn.sh` refuses a `--secondmate` launch on it for the same reason.
 cursor HAS a full hooks system: 20 lifecycle events configurable at project scope in `.cursor/hooks.json`, plus a Claude-Code compatibility name map that also loads `<project>/.claude/settings.json`.
 Its `stop` step cannot block - exit 2 there is a silent no-op - so `bin/fm-turnend-guard-cursor.sh` parks the turn boundary on the watcher and returns one bounded `followup_message` instead.
 Because Cursor loads the tracked Claude settings too, every Claude-shaped entrypoint whose event Cursor covers stands down on a Cursor-delivered payload.
@@ -131,8 +132,9 @@ The supported launch-profile flags below are verified locally; each row records 
 | pi / pi-signed | `--model <model>` | `--thinking <low\|medium\|high\|xhigh\|max>` | Verified 2026-07-27 on Pi and pi-signed 0.82.0. Both expose the same accepted thinking levels and completed the same model-qualified max-thinking smoke. |
 | opencode | `--model <provider/model>` | none for firstmate's interactive launch | Verified on opencode 1.17.6. `opencode run` has `--variant`, but firstmate launches the interactive `opencode --prompt` path, which has no verified effort flag. |
 | kimi | `--model <model>` | none | Verified 2026-07-25 on Kimi Code CLI 0.29.1. |
-| cursor | `--model <model>` | none | Verified 2026-08-11 on Cursor Agent CLI 2026.08.11-e8db854. No effort flag exists, so firstmate records the requested effort in task metadata and omits it from the launch. Validate ids against `cursor-agent --list-models` rather than assuming a low/medium/high family: the live catalog carries only `-high` Grok ids. |
+| cursor | `--model <model>` | none (effort may appear in dispatch metadata only) | Verified 2026-08-11 on Cursor Agent CLI 2026.08.11-e8db854. No effort flag exists, so firstmate records the requested effort in task metadata and omits it from the launch. Dispatch profiles may still carry `effort` for that metadata path. Validate ids against `cursor-agent --list-models` rather than assuming a low/medium/high family: the live catalog carries only `-high` Grok ids. |
 | muse | `--model <model>` | `--reasoning-effort <low\|medium\|high\|xhigh>`, and `ultra` only for an explicit `max` | Verified 2026-08-05 on Muse Code 0.1.0-R708.1. The flag accepts `none\|minimal\|low\|medium\|high\|xhigh\|ultra` and defaults to `high`. `ultra` is muse's max-class level, so it is reachable only through an explicit captain `max`, never from the generic fallback; `none` and `minimal` sit below the shared vocabulary and stay unreachable. |
+| cline | `--model <model-id>` | `--thinking <low\|medium\|high\|xhigh>` | Verified 2026-08-24 on cline 3.0.55. Accepts `none\|low\|medium\|high\|xhigh`; `none` sits below the shared vocabulary and stays unreachable; `max` is not a cline level and is omitted. Scout standing policy prefers `high` and avoids `xhigh` for time cost, but `xhigh` remains a valid explicit request. |
 
 The concrete `harness` field owns adapter identity independently of the model provider: `harness=pi` with `model=xai/grok-*` is Pi using xAI, not `harness=grok`, and does not require Grok CLI login; `harness=grok` remains the standalone Grok Build CLI adapter.
 Likewise, `harness=cursor` with `model=cursor-grok-4.5-*` is Cursor Agent CLI routing a Grok model, not the xAI Grok Build `grok` harness.
@@ -152,6 +154,8 @@ Use the discovery surface in the current authenticated environment because suppo
 | grok | Run `grok models`, which lists the models available to the current Grok installation and account. |
 | kimi | Run `kimi provider list --json`, which lists the current provider and model configuration. |
 | cursor | Run `cursor-agent --list-models` (or the legacy `agent --list-models`), which lists the ids available to the current Cursor account. `cursor` is not the CLI name. |
+| muse | Run `muse --help` and the provider/model surfaces documented by the installed Muse Code build; there is no separate verified model-list CLI beyond that. |
+| cline | Run `cline --help`; model ids come from the selected provider (`-P`/`--provider`, default `cline`). |
 
 For an unfamiliar harness or model namespace, establish support and provider identity from that harness's authoritative CLI help, model listing, or current documentation rather than guessing from a name or prefix.
 A listing that reaches the account and does not contain the model is concrete evidence the model is unsupported: block that candidate and quote the result.
@@ -173,6 +177,7 @@ Natural language is acceptable if uncertain.
 - grok: `/<skill>`, for example `/no-mistakes` (same form as claude). Verified end to end: grok discovers the user-level `no-mistakes` skill, `/no-mistakes` invokes it, and grok drives a real `no-mistakes axi run`. Like codex's `$`/`/` popups, typing `/<skill>` opens grok's slash-autocomplete, so a too-fast Enter selects the popup entry instead of sending, and for an argument-taking command (like `/no-mistakes`'s optional task-first argument) that first Enter only expands the popup selection into an argument-hint placeholder rather than submitting - a genuine second Enter is required (see the grok section below for the 2026-07-03 incident and fix). `fm_tmux_submit_core`'s retried Enter (used by `fm-send` on the tmux backend) handles this through the shared structural composer classifier; the herdr backend needed a dedicated fix (`fm_backend_herdr_composer_state`, docs/herdr-backend.md) because its prior delta-based verification false-positived on that same popup-close content change.
 - kimi: `/<skill>`, for example `/no-mistakes`.
 - cursor: `/<skill>`, for example `/no-mistakes`. Cursor discovers firstmate's user-level skills. Its slash popup swallows the first Enter, so a genuine second Enter submits; the shared submit retry handles it.
+- cline: natural language or slash; `/no-mistakes` was not live-verified in the 2026-08-24 probe set, so prefer natural language if the exact skill command is uncertain.
 
 ## Submission acknowledgement hazards
 
@@ -534,3 +539,29 @@ A teardown refusal naming muse scratch is therefore correct behavior: inspect it
 muse is a day-0 `0.1.0` beta whose launcher polls a release channel hourly and can replace the running binary underneath the fleet, changing the process name with it.
 The captain accepted that risk, so firstmate does NOT set `MUSE_NO_AUTO_UPDATE=1`; a fleet that later wants stability can set it in the launch environment without any adapter change.
 Its plugin/hook engine reports `plugins are not available in this build` unless `MUSE_EXPERIMENTAL_PLUGINS=on`, which is why the busy source reads the session log instead of installing a hook.
+
+## cline (VERIFIED CREWMATE/SCOUT 2026-08-24, cline 3.0.55)
+
+CREWMATE/SCOUT ONLY.
+`bin/fm-spawn.sh` refuses a `--secondmate` launch because cline has no verified primary turn-end hook or supervision protocol.
+
+| Fact | Value |
+|---|---|
+| Busy state | Rendered-tail fallback (`cline-regex` in `bin/fm-busy-lib.sh`): braille spinner `⠹⠙⠸⠴⠦⠇` or an open `▶ Thinking:` line is busy; `Ask anything...` with no spinner is idle. Herdr-native is broken for this harness (remote `cline.toml` catch-all always reports working) and is deliberately skipped. No turn-end hook is wired yet. |
+| Exit command | `/exit` (clean Session Summary). `Ctrl+C` also exits the TUI but is force-termination, not the primary exit. |
+| Interrupt | Single Escape. Returns to the idle composer placeholder; no clear key is needed. `Ctrl+C` exits rather than interrupting. |
+| Skill invocation | Natural language or slash; `/no-mistakes` not yet live-verified. |
+| Autonomy | `--auto-approve true` (footer: `Auto-approve all enabled`). |
+| Environment marker | None. Detection is process ancestry on exact basename `cline` or a node script path containing `cline`. The launch clears foreign primary markers. |
+| Trust dialog | None observed on fresh worktrees; no trust flag is passed. |
+
+### Launch
+
+`cline --tui --auto-approve true --model <id> --thinking <level> "$(cat brief)"`.
+`--tui` is required: without it, cline runs headless and exits after one turn, which breaks the supervised-pane model.
+Hub health (`cline doctor`) is a runtime dependency for TUI sessions.
+
+### Composer
+
+Idle composer is a separated `─` pair around `❯ Ask anything...`.
+The glyph and idle placeholder are already shared fleet declarations; `bin/fm-composer-lib.sh` treats that glyph+idle middle row as empty without requiring a pi identity probe, because cline's muted RGB placeholder survives ghost-strip.

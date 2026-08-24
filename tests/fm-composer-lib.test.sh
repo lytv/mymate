@@ -327,6 +327,24 @@ test_matrix_pi_separated_needs_identity() {
   pass "matrix: pi's separated composer needs identity + structure; the blank row alone never proves it"
 }
 
+test_matrix_cline_separated_glyph_idle() {
+  # Real idle cline (verified 2026-08-24, cline 3.0.55): agent glyph plus the
+  # shared Ask anything... placeholder between two solid rules. The muted RGB
+  # placeholder survives ghost-strip, so without the separated glyph+idle proof
+  # this shape misreads as pending.
+  local screen typed
+  screen=$'──────────────────────────────────────────────────\n❯ Ask anything...\n──────────────────────────────────────────────────'
+  assert_screen "cline idle without identity capability" empty "$CAPS_STYLED_NOID" "$screen"
+  assert_screen "cline idle on plain backend" empty "$CAPS_PLAIN" "$screen"
+  assert_screen "cline idle on herdr without probe" empty "$CAPS_STYLED" "$screen"
+  assert_screen "cline idle with non-pi identity" empty "$CAPS_STYLED" "$screen" '' "$(printf 'cline\tworking')"
+  typed=$'──────────────────────────────────────────────────\n❯ please investigate the flaky test\n──────────────────────────────────────────────────'
+  assert_screen "cline typed stays pending" pending "$CAPS_STYLED_NOID" "$typed"
+  assert_screen "cline typed on plain backend" unknown "$CAPS_PLAIN" "$typed"
+  assert_screen "cline typed with non-pi identity" pending "$CAPS_STYLED" "$typed" '' "$(printf 'cline\tworking')"
+  pass "matrix: cline's separated glyph+idle composer reads empty without pi identity"
+}
+
 test_matrix_opencode_leftbar_signals() {
   # Real idle opencode: `┃`-prefixed rows holding the "Ask anything..." hint,
   # blanks, and a Build-mode footer. Two independent idle signals: the shared
@@ -618,6 +636,7 @@ test_matrix_muse_truecolor_glyph_survives_signal_loss
 test_matrix_cursor_reverse_video_placeholder_remnant
 test_matrix_herdr_halfblock_rule_bounds_bare_wrap
 test_matrix_pi_separated_needs_identity
+test_matrix_cline_separated_glyph_idle
 test_matrix_opencode_leftbar_signals
 test_matrix_grok_titled_bottom_border
 test_matrix_kimi_bordered_shell_glyph_box

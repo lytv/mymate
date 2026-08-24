@@ -1129,7 +1129,10 @@ unsupported opencode effort is flagged^{"rules":[{"when":"opencode work","use":{
 kimi model profile is accepted^{"rules":[{"when":"kimi work","use":{"harness":"kimi","model":"kimi-code/k3"}}]}^empty^
 unsupported kimi effort is flagged^{"rules":[{"when":"kimi work","use":{"harness":"kimi","model":"kimi-code/k3","effort":"high"}}]}^exact^CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: kimi:high
 cursor model profile is accepted^{"rules":[{"when":"cursor work","use":{"harness":"cursor","model":"cursor-grok-4.5-high"}}]}^empty^
-unsupported cursor effort is flagged^{"rules":[{"when":"cursor work","use":{"harness":"cursor","model":"cursor-grok-4.5-high","effort":"high"}}]}^exact^CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: cursor:high
+cursor effort is accepted as metadata^{"rules":[{"when":"cursor work","use":{"harness":"cursor","model":"cursor-grok-4.5-high","effort":"medium"}}]}^empty^
+cline scout high with cursor medium default is accepted^{"rules":[{"when":"scout work","use":{"harness":"cline","effort":"high"}}],"default":{"harness":"cursor","effort":"medium"}}^empty^
+cline shared efforts are accepted^{"rules":[{"when":"cline low","use":{"harness":"cline","effort":"low"}},{"when":"cline medium","use":{"harness":"cline","effort":"medium"}},{"when":"cline high","use":{"harness":"cline","effort":"high"}},{"when":"cline xhigh","use":{"harness":"cline","effort":"xhigh"}}]}^empty^
+unsupported cline max effort is flagged^{"rules":[{"when":"cline max","use":{"harness":"cline","effort":"max"}}]}^exact^CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: cline:max
 array use with quota-balanced is accepted^{"rules":[{"when":"big feature","use":[{"harness":"claude","model":"claude-sonnet-5","effort":"high"},{"harness":"codex","model":"gpt-5.5","effort":"high"}],"select":"quota-balanced"}]}^empty^
 array use without select is accepted^{"rules":[{"when":"big feature","use":[{"harness":"claude"},{"harness":"codex"}]}]}^empty^
 one-element array use is accepted^{"rules":[{"when":"focused feature","use":[{"harness":"claude"}]}]}^empty^

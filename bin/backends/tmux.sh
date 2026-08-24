@@ -170,6 +170,8 @@ fm_backend_tmux_classify_process_name() {  # <path> [argv0] -> agent|shell|other
     # cannot carry it either: ~/.local/bin/muse-bin-<version> has no `muse` path
     # COMPONENT, so the fm_harness_path_name fallback below never fires for it.
     muse|muse-bin-*) printf 'agent' ;;
+    # Exact basename only for cline (verified, cline 3.0.55): never *cline*.
+    cline) printf 'agent' ;;
     *claude*|*codex*|*opencode*|*grok*|*kimi*|pi|pi-signed|pi-launcher|Pi) printf 'agent' ;;
     zsh|bash|sh|dash|ash|ksh|mksh|tcsh|csh|fish) printf 'shell' ;;
     *)
@@ -185,7 +187,11 @@ fm_backend_tmux_classify_process_name() {  # <path> [argv0] -> agent|shell|other
       # unrelated `node` or `agent` matches nothing here and stays `other`,
       # which the callers above fold into `ambiguous` rather than `dead`, so a
       # stranger's node pane is never reported as an agent-free pane.
+      # cline is also a node script; when the pane command is bare `node`, the
+      # argv0 / path must carry `cline` for this branch to claim agent.
       elif fm_cursor_process_matches "${path:-$argv0}" '' "$argv0"; then
+        printf 'agent'
+      elif case "${path:-$argv0}" in *cline*) true ;; *) false ;; esac; then
         printf 'agent'
       else
         printf 'other'

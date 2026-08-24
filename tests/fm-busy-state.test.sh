@@ -304,6 +304,28 @@ Ctrl+c:cancel')
   pass "the grok fallback is regex-scoped to grok and classifies only grok tasks"
 }
 
+test_cline_regex_isolated() {
+  local state out
+  state=$(new_state_dir cline-arm)
+  out=$(fm_busy_classify tmux w1 cline t1 "$state" '⠴ run_commands(sleep 5)')
+  [ "$out" = "busy cline-regex" ] || fail "cline busy spinner must classify 'busy cline-regex', got '$out'"
+  out=$(fm_busy_classify tmux w1 cline t1 "$state" 'DONE
+──────────────────────────────────────────────────
+❯ Ask anything...
+──────────────────────────────────────────────────
+ClinePass')
+  [ "$out" = "idle cline-regex" ] || fail "cline idle composer must classify 'idle cline-regex', got '$out'"
+  # Herdr-native must not short-circuit cline: even with a native busy stub,
+  # the cline arm classifies from the rendered tail only.
+  # shellcheck disable=SC2329
+  fm_backend_busy_state() { printf 'busy'; }
+  out=$(fm_busy_classify herdr s:p cline t1 "$state" '❯ Ask anything...')
+  [ "$out" = "idle cline-regex" ] || fail "cline must ignore herdr-native busy, got '$out'"
+  out=$(fm_busy_classify tmux w1 claude t1 "$state" '⠴ run_commands(sleep 5)')
+  [ "$out" != "busy cline-regex" ] || fail "a cline spinner must not classify a claude task"
+  pass "the cline fallback is regex-scoped to cline and skips herdr-native"
+}
+
 # --- kimi verification gate -----------------------------------------------------
 
 test_codex_unverified_gate() {
@@ -454,6 +476,7 @@ test_record_without_sidecar_unknown
 test_source_mismatch_cross_adapter
 test_converted_adapters_ignore_footer_text
 test_grok_regex_isolated
+test_cline_regex_isolated
 test_codex_unverified_gate
 test_kimi_unverified_gate
 test_cursor_ignores_rendered_and_native_signals

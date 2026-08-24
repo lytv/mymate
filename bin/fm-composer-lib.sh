@@ -67,6 +67,12 @@
 #                get`; the tmux foreground-process probe), because a blank
 #                region between two transcript rules is otherwise exactly the
 #                strict rule's unidentifiable blank row.
+#                cline reuses the same `─` pair but puts an agent glyph plus the
+#                shared `Ask anything...` idle placeholder between them
+#                (verified, cline 3.0.55). That glyph+idle middle row is
+#                positive container proof without pi identity: cline's muted
+#                RGB placeholder survives ghost-strip (luminance ~135.5 > 128),
+#                so the bare idle path would otherwise misread it as pending.
 #
 # THE SAFETY RULE for glyphs: a bare shell prompt glyph (`>` `$` `%` `#`) -
 # what a pane shows once its agent has exited to a plain login shell - is a
@@ -311,12 +317,17 @@ fm_composer_strip_ghost() {
 # part of that union for the same reason the others are: without it a cursor
 # submit could never be acknowledged, because cursor parks its terminal cursor
 # outside its composer and the composer verdict is therefore always `unknown`.
-FM_DELIVERY_BUSY_REGEX_DEFAULT='esc (to )?interrupt|Working\.\.\.|Ctrl\+c:cancel|ctrl\+c to stop'
+FM_DELIVERY_BUSY_REGEX_DEFAULT='esc (to )?interrupt|Working\.\.\.|Ctrl\+c:cancel|ctrl\+c to stop|[⠹⠙⠸⠴⠦⠇]|▶ Thinking:'
 FM_DELIVERY_CLAUDE_BUSY_REGEX_DEFAULT='esc to interrupt|…[[:space:]]+\([0-9]+[smh]'
 FM_DELIVERY_CODEX_BUSY_REGEX_DEFAULT='esc to interrupt'
 FM_DELIVERY_OPENCODE_BUSY_REGEX_DEFAULT='esc interrupt'
 FM_DELIVERY_PI_BUSY_REGEX_DEFAULT='Working\.\.\.'
 FM_DELIVERY_GROK_BUSY_REGEX_DEFAULT='Ctrl\+c:cancel'
+# cline's busy signature (verified, cline 3.0.55): a rotating braille spinner
+# next to the active tool, or an open `▶ Thinking:` line. Herdr-native is not
+# trusted for this harness (catch-all working rule), so delivery and the
+# busy-lib cline-tail arm share this rendered signature.
+FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT='[⠹⠙⠸⠴⠦⠇]|▶ Thinking:'
 # cursor-agent's busy footer. The TOKEN is matched, not the spinner verb: the
 # same version rendered both `Working` and `Running` beside its braille spinner
 # in two consecutive turns, while `ctrl+c to stop` was present for the whole
@@ -339,6 +350,7 @@ fm_busy_lines_match() {  # [harness]
       opencode) regex=$FM_DELIVERY_OPENCODE_BUSY_REGEX_DEFAULT ;;
       pi|pi-signed) regex=$FM_DELIVERY_PI_BUSY_REGEX_DEFAULT ;;
       grok) regex=$FM_DELIVERY_GROK_BUSY_REGEX_DEFAULT ;;
+      cline) regex=$FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT ;;
       kimi) regex=$FM_DELIVERY_KIMI_BUSY_REGEX_DEFAULT ;;
       cursor) regex=$FM_DELIVERY_CURSOR_BUSY_REGEX_DEFAULT ;;
       '') regex=$FM_DELIVERY_BUSY_REGEX_DEFAULT ;;
@@ -1353,8 +1365,37 @@ _fm_composer_classify_pi_rows() {  # <screen> <styled>
   printf 'empty'
 }
 
+# _fm_composer_separated_agent_idle: true when the bare row inside a separator
+# pair is exactly an agent glyph plus a shared idle placeholder. That shape is
+# cline's idle composer (verified, cline 3.0.55) and proves `empty` without a
+# pi identity probe. Real typed text after the glyph does not match.
+_fm_composer_separated_agent_idle() {  # <screen> <styled> <row>
+  local screen=$1 styled=$2 row=$3 raw content plain glyph=''
+  raw=$(_fm_composer_screen_row "$row" "$screen")
+  content=$(_fm_composer_row_content "$raw" "$styled")
+  plain=$(_fm_composer_row_content "$raw" 0)
+  [ -n "$content" ] || content=$plain
+  fm_composer_normalize_trim_var content
+  fm_composer_leading_prompt_glyph_var glyph "$content" || return 1
+  case "$FM_COMPOSER_AGENT_PROMPT_GLYPHS" in
+    *"$glyph"*) ;;
+    *) return 1 ;;
+  esac
+  content=${content#*"$glyph"}
+  fm_composer_normalize_trim_var content
+  [ -n "$content" ] || return 1
+  fm_composer_idle_matches "$content" \
+    "${FM_COMPOSER_IDLE_RE:-$FM_COMPOSER_IDLE_RE_DEFAULT}" insensitive
+}
+
 _fm_composer_classify_bare_pi_overlap() {  # <screen> <styled> <has-identity> <identity> <bare-row>
   local screen=$1 styled=$2 has_identity=$3 identity=$4 row=$5 agent
+  # Separated glyph+idle (cline) proves empty before any identity gate: the
+  # placeholder survives ghost-strip and would otherwise read pending.
+  if _fm_composer_separated_agent_idle "$screen" "$styled" "$row"; then
+    printf 'empty'
+    return 0
+  fi
   if [ "$has_identity" != 1 ]; then
     _fm_composer_classify_bare_row "$screen" "$styled" "$row"
     return 0

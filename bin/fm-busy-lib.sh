@@ -831,12 +831,28 @@ fm_busy_grok_tail_busy() {
     | grep -qiE "${FM_BUSY_REGEX:-${FM_DELIVERY_GROK_BUSY_REGEX_DEFAULT:-Ctrl\\+c:cancel}}"
 }
 
+# fm_busy_cline_tail_busy: the Cline rendered-tail fallback (verified,
+# cline 3.0.55). Herdr's remote cline.toml catch-all always reports working, so
+# firstmate cannot trust herdr-native for this harness; the braille spinner (or
+# an active Thinking line without the idle composer) is the busy signal, and
+# `Ask anything...` with no spinner is idle.
+fm_busy_cline_tail_busy() {
+  local lines
+  lines=$(grep -v '^[[:space:]]*$' | tail -12)
+  if printf '%s\n' "$lines" | grep -qE 'Ask anything' \
+     && ! printf '%s\n' "$lines" | grep -qE '[⠹⠙⠸⠴⠦⠇]'; then
+    return 1
+  fi
+  printf '%s\n' "$lines" \
+    | grep -qiE "${FM_BUSY_REGEX:-${FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT:-[⠹⠙⠸⠴⠦⠇]|▶ Thinking:}}"
+}
+
 # fm_busy_classify: semantic classification for a task whose endpoint the
 # caller has already established as present. Prints "<verdict> <source>":
 # busy|idle|unknown plus the producing source (see header). Never probes
 # process state. <tail40> is optional pre-captured plain output used only by
-# the Grok arm; when absent the Grok arm captures through fm_backend_capture
-# if available, else reports unknown capture-failed.
+# the Grok and Cline arms; when absent those arms capture through
+# fm_backend_capture if available, else report unknown capture-failed.
 fm_busy_classify() {  # <backend> <target> <harness> <id> <state-dir> [tail40]
   local backend=$1 target=$2 harness=$3 id=$4 state=$5 tail40=${6-}
   local out rc r_state r_source native log
@@ -869,6 +885,27 @@ fm_busy_classify() {  # <backend> <target> <harness> <id> <state-dir> [tail40]
         settled) printf 'idle cursor-transcript' ;;
         *) printf 'unknown cursor-transcript' ;;
       esac
+      return 0
+      ;;
+    cline*)
+      # Herdr-native is unusable for cline (catch-all working rule), and there
+      # is no semantic writer yet. Classify from the rendered tail only.
+      if [ -z "$tail40" ]; then
+        if command -v fm_backend_capture >/dev/null 2>&1; then
+          tail40=$(fm_backend_capture "$backend" "$target" 40 2>/dev/null) || {
+            printf 'unknown capture-failed'
+            return 0
+          }
+        else
+          printf 'unknown capture-failed'
+          return 0
+        fi
+      fi
+      if printf '%s' "$tail40" | fm_busy_cline_tail_busy; then
+        printf 'busy cline-regex'
+      else
+        printf 'idle cline-regex'
+      fi
       return 0
       ;;
   esac

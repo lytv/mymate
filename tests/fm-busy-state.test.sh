@@ -327,6 +327,7 @@ ClinePass')
   [ "$out" = "idle cline-regex" ] || fail "the exact Cline composer must settle retained Thinking text, got '$out'"
   out=$(fm_busy_classify tmux w1 cline t1 "$state" $'──────────────────────────────────────────────────\n❯ Ask anything...\n──────────────────────────────────────────────────\n▶ Thinking:')
   [ "$out" = "busy cline-regex" ] || fail "a completed-looking row before active thinking must stay busy, got '$out'"
+  # shellcheck disable=SC2329 # fm_busy_classify invokes fm_backend_capture indirectly.
   out=$(fm_backend_capture() { :; }; fm_busy_classify tmux w1 cline t1 "$state")
   [ "$out" = "unknown cline-regex" ] || fail "blank cline capture must classify unknown, got '$out'"
   out=$(fm_busy_classify tmux w1 cline t1 "$state" 'starting terminal')

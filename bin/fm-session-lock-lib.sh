@@ -50,10 +50,10 @@ fm_cline_path_matches() {  # <path>...
   for path in "$@"; do
     base=${path##*/}
     case "$base" in
-      cline|cline.js|cline.cjs|cline.mjs) return 0 ;;
+      cline) return 0 ;;
     esac
     case "/$path/" in
-      */cline/*) return 0 ;;
+      */node_modules/cline/*) return 0 ;;
     esac
   done
   return 1

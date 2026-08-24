@@ -168,6 +168,8 @@ test_tmux_classifies_cursor_pane_without_inferring_dead() {
       || fail "an unrelated agent must stay 'other', never agent"
     [ "$(fm_backend_tmux_classify_process_name node /srv/decline/index.js)" = other ] \
       || fail "a node path that merely contains cline must stay other"
+    [ "$(fm_backend_tmux_classify_process_name node /work/project/cline.js)" = other ] \
+      || fail "an unrelated cline.js script must stay other"
     [ "$(fm_backend_tmux_classify_process_name node /srv/node_modules/cline/dist/index.js)" = agent ] \
       || fail "a node path under a cline component must classify agent"
     # Neighbours must not regress.
@@ -181,7 +183,7 @@ test_harness_ancestry_matches_only_cline_node_paths() {
   command -v node >/dev/null 2>&1 || return 0
   local root path out
   root="$TMP_ROOT/cline-paths"
-  for path in "$root/decline/index.js" "$root/node_modules/cline/dist/index.js"; do
+  for path in "$root/decline/index.js" "$root/cline.js" "$root/node_modules/cline/dist/index.js"; do
     mkdir -p "$(dirname "$path")"
     cat > "$path" <<'JS'
 const { spawnSync } = require('child_process');
@@ -193,6 +195,8 @@ JS
   done
   out=$(node "$root/decline/index.js" "$HARNESS")
   [ "$out" != cline ] || fail "an unrelated node path must not identify as cline"
+  out=$(node "$root/cline.js" "$HARNESS")
+  [ "$out" != cline ] || fail "an unrelated cline.js script must not identify as cline"
   out=$(node "$root/node_modules/cline/dist/index.js" "$HARNESS")
   [ "$out" = cline ] || fail "a node path under cline must identify as cline, got '$out'"
   pass "Cline node ancestry and tmux liveness require exact path evidence"

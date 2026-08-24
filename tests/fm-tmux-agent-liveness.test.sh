@@ -155,6 +155,19 @@ wait_for_state "$SESSION:agent" alive \
   || fail "a running harness-named foreground process must classify alive"
 pass "tmux liveness: a harness-named foreground process classifies alive"
 
+if NODE_BIN=$(command -v node 2>/dev/null); then
+  mkdir -p "$LAB/node_modules/cline/dist"
+  cat > "$LAB/node_modules/cline/dist/index.js" <<'JS'
+setInterval(function () {}, 1000);
+JS
+  new_window cline-node "$NODE_BIN" "$LAB/node_modules/cline/dist/index.js"
+  wait_for_state "$SESSION:cline-node" alive \
+    || fail "a Cline node script must classify alive from its script path"
+  pass "tmux liveness: a Cline node script classifies alive"
+else
+  echo "skip: node not found, so the Cline node-script liveness case cannot run"
+fi
+
 # --- muse's version-suffixed binary name ------------------------------------
 # A muse crewmate pane misclassified here reads as a dead endpoint, so a healthy
 # worker would be torn down or relaunched. The decoys below are what keep the

@@ -252,6 +252,24 @@ fm_backend_tmux_foreground_argv0s() {  # <target>
       done
 }
 
+fm_backend_tmux_foreground_node_scripts() {  # <target>
+  local target=$1 tty pid pgid tpgid comm args argv0 script
+  tty=$(tmux display-message -p -t "$target" '#{pane_tty}' 2>/dev/null) || return 0
+  [ -n "$tty" ] || return 0
+  LC_ALL=C ps -t "${tty#/dev/}" -o pid=,pgid=,tpgid=,comm= 2>/dev/null \
+    | while read -r pid pgid tpgid comm; do
+        [ -n "$comm" ] || continue
+        [ "$pgid" = "$tpgid" ] || continue
+        case "$comm" in *node*) ;; *) continue ;; esac
+        args=$(LC_ALL=C ps -p "$pid" -o args= 2>/dev/null) || continue
+        args=${args#"${args%%[![:space:]]*}"}
+        read -r argv0 script _ <<EOF
+$args
+EOF
+        [ -n "$script" ] && printf '%s\t%s\n' "$comm" "$script"
+      done
+}
+
 # fm_backend_tmux_agent_state: recovery-grade harness-agent state for one
 # recorded target. See bin/fm-backend.sh's fm_backend_agent_state for the
 # shared state vocabulary and docs/tmux-backend.md "Agent liveness probe" for
@@ -270,7 +288,7 @@ fm_backend_tmux_foreground_argv0s() {  # <target>
 # distinguish a truly idle pane from a rewritten process title.
 fm_backend_tmux_agent_state() {  # <target>
   local target=$1 comm session window windows inventory_status
-  local foreground argv0s name fg_seen=0 fg_shell=0 fg_other=0
+  local foreground argv0s node_scripts name script fg_seen=0 fg_shell=0 fg_other=0
   case "$target" in
     *:*:*|'':*|*:'') printf 'unreadable'; return 0 ;;
     *:*) ;;
@@ -321,6 +339,17 @@ EOF
     fi
   done <<EOF
 $argv0s
+EOF
+
+  node_scripts=$(fm_backend_tmux_foreground_node_scripts "$target")
+  while IFS=$'\t' read -r name script; do
+    [ -n "$name" ] && [ -n "$script" ] || continue
+    if [ "$(fm_backend_tmux_classify_process_name "$name" "$script")" = agent ]; then
+      printf 'alive'
+      return 0
+    fi
+  done <<EOF
+$node_scripts
 EOF
 
   comm=$(fm_backend_tmux_current_command "$target") || {

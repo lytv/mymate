@@ -843,8 +843,11 @@ fm_busy_cline_tail_busy() {
      && ! printf '%s\n' "$lines" | grep -qE '[⠹⠙⠸⠴⠦⠇]'; then
     return 1
   fi
-  printf '%s\n' "$lines" \
-    | grep -qiE "${FM_BUSY_REGEX:-${FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT:-[⠹⠙⠸⠴⠦⠇]|▶ Thinking:}}"
+  if printf '%s\n' "$lines" \
+    | grep -qiE "${FM_BUSY_REGEX:-${FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT:-[⠹⠙⠸⠴⠦⠇]|▶ Thinking:}}"; then
+    return 0
+  fi
+  return 2
 }
 
 # fm_busy_classify: semantic classification for a task whose endpoint the
@@ -904,7 +907,10 @@ fm_busy_classify() {  # <backend> <target> <harness> <id> <state-dir> [tail40]
       if printf '%s' "$tail40" | fm_busy_cline_tail_busy; then
         printf 'busy cline-regex'
       else
-        printf 'idle cline-regex'
+        case $? in
+          1) printf 'idle cline-regex' ;;
+          *) printf 'unknown cline-regex' ;;
+        esac
       fi
       return 0
       ;;

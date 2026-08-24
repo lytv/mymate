@@ -321,12 +321,18 @@ ClinePass')
   fm_backend_busy_state() { printf 'busy'; }
   out=$(fm_busy_classify herdr s:p cline t1 "$state" '❯ Ask anything...')
   [ "$out" = "idle cline-regex" ] || fail "cline must ignore herdr-native busy, got '$out'"
+  out=$(fm_busy_classify tmux w1 cline t1 "$state" $'assistant: Ask anything...\n▶ Thinking:')
+  [ "$out" = "busy cline-regex" ] || fail "a quoted placeholder must not settle a live Cline turn, got '$out'"
+  out=$(fm_busy_classify tmux w1 cline t1 "$state" $'▶ Thinking: completed\n❯ Ask anything...')
+  [ "$out" = "idle cline-regex" ] || fail "the exact Cline composer must settle retained Thinking text, got '$out'"
   out=$(fm_backend_capture() { :; }; fm_busy_classify tmux w1 cline t1 "$state")
   [ "$out" = "unknown cline-regex" ] || fail "blank cline capture must classify unknown, got '$out'"
   out=$(fm_busy_classify tmux w1 cline t1 "$state" 'starting terminal')
   [ "$out" = "unknown cline-regex" ] || fail "unrecognized cline capture must classify unknown, got '$out'"
   out=$(fm_busy_classify tmux w1 claude t1 "$state" '⠴ run_commands(sleep 5)')
   [ "$out" != "busy cline-regex" ] || fail "a cline spinner must not classify a claude task"
+  out=$(fm_busy_classify tmux w1 decline t1 "$state" '⠴ run_commands(sleep 5)')
+  [ "$out" = "unknown missing" ] || fail "a decline task must not use Cline busy rules, got '$out'"
   pass "the cline fallback is regex-scoped to cline and skips herdr-native"
 }
 

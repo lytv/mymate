@@ -87,7 +87,7 @@ fm_control_harness_family() {  # <recorded-harness>
     kimi*) printf 'kimi' ;;
     cursor*) printf 'cursor' ;;
     muse*) printf 'muse' ;;
-    cline*) printf 'cline' ;;
+    cline|cline-*) printf 'cline' ;;
     *) return 1 ;;
   esac
 }

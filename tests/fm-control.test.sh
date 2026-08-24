@@ -277,6 +277,8 @@ test_harness_family_resolution() {
   done
   fm_control_harness_family someagent \
     && fail "an unrecognized launch command must not be guessed into an adapter family"
+  fm_control_harness_family decline \
+    && fail "a command that merely contains cline must not resolve to Cline"
   fm_control_harness_family '' \
     && fail "an empty harness must not resolve to an adapter family"
   # The signed adapter is a distinct launch profile, not a pi variant.

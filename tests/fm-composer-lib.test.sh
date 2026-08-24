@@ -334,10 +334,11 @@ test_matrix_cline_separated_glyph_idle() {
   # this shape misreads as pending.
   local screen typed
   screen=$'──────────────────────────────────────────────────\n❯ Ask anything...\n──────────────────────────────────────────────────'
-  assert_screen "cline idle without identity capability" empty "$CAPS_STYLED_NOID" "$screen"
-  assert_screen "cline idle on plain backend" empty "$CAPS_PLAIN" "$screen"
-  assert_screen "cline idle on herdr without probe" empty "$CAPS_STYLED" "$screen"
+  assert_screen "cline-shaped draft without identity capability" unknown "$CAPS_STYLED_NOID" "$screen"
+  assert_screen "cline-shaped draft on plain backend" unknown "$CAPS_PLAIN" "$screen"
+  assert_screen "cline-shaped draft without probe" need-identity "$CAPS_STYLED" "$screen"
   assert_screen "cline idle with non-pi identity" empty "$CAPS_STYLED" "$screen" '' "$(printf 'cline\tworking')"
+  assert_screen "pi draft matching cline placeholder stays pending" pending "$CAPS_STYLED" "$screen" '' "$(printf 'pi\tworking')"
   typed=$'──────────────────────────────────────────────────\n❯ please investigate the flaky test\n──────────────────────────────────────────────────'
   assert_screen "cline typed stays pending" pending "$CAPS_STYLED_NOID" "$typed"
   assert_screen "cline typed on plain backend" unknown "$CAPS_PLAIN" "$typed"

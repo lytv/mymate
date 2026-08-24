@@ -839,7 +839,7 @@ fm_busy_grok_tail_busy() {
 fm_busy_cline_tail_busy() {
   local lines
   lines=$(grep -v '^[[:space:]]*$' | tail -12)
-  if printf '%s\n' "$lines" | grep -qE 'Ask anything' \
+  if printf '%s\n' "$lines" | grep -qEx '[[:space:]]*❯[[:space:]]+Ask anything\.\.\.[[:space:]]*' \
      && ! printf '%s\n' "$lines" | grep -qE '[⠹⠙⠸⠴⠦⠇]'; then
     return 1
   fi
@@ -890,7 +890,7 @@ fm_busy_classify() {  # <backend> <target> <harness> <id> <state-dir> [tail40]
       esac
       return 0
       ;;
-    cline*)
+    cline|cline-*)
       # Herdr-native is unusable for cline (catch-all working rule), and there
       # is no semantic writer yet. Classify from the rendered tail only.
       if [ -z "$tail40" ]; then

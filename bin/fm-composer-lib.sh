@@ -1390,11 +1390,24 @@ _fm_composer_separated_agent_idle() {  # <screen> <styled> <row>
 
 _fm_composer_classify_bare_pi_overlap() {  # <screen> <styled> <has-identity> <identity> <bare-row>
   local screen=$1 styled=$2 has_identity=$3 identity=$4 row=$5 agent
-  # Separated glyph+idle (cline) proves empty before any identity gate: the
-  # placeholder survives ghost-strip and would otherwise read pending.
   if _fm_composer_separated_agent_idle "$screen" "$styled" "$row"; then
-    printf 'empty'
-    return 0
+    if [ "$has_identity" != 1 ]; then
+      printf 'unknown'
+      return 0
+    fi
+    if [ -z "$identity" ]; then
+      printf 'need-identity'
+      return 0
+    fi
+    if [ "$identity" = probe-absent ]; then
+      printf 'unknown'
+      return 0
+    fi
+    agent=${identity%%$'\t'*}
+    if [ "$agent" = cline ]; then
+      printf 'empty'
+      return 0
+    fi
   fi
   if [ "$has_identity" != 1 ]; then
     _fm_composer_classify_bare_row "$screen" "$styled" "$row"

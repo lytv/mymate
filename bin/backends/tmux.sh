@@ -191,7 +191,7 @@ fm_backend_tmux_classify_process_name() {  # <path> [argv0] -> agent|shell|other
       # argv0 / path must carry `cline` for this branch to claim agent.
       elif fm_cursor_process_matches "${path:-$argv0}" '' "$argv0"; then
         printf 'agent'
-      elif case "${path:-$argv0}" in *cline*) true ;; *) false ;; esac; then
+      elif fm_cline_path_matches "$path" "$argv0"; then
         printf 'agent'
       else
         printf 'other'

@@ -166,11 +166,36 @@ test_tmux_classifies_cursor_pane_without_inferring_dead() {
       || fail "an unrelated node must stay 'other', never agent"
     [ "$(fm_backend_tmux_classify_process_name agent /usr/local/bin/agent)" = other ] \
       || fail "an unrelated agent must stay 'other', never agent"
+    [ "$(fm_backend_tmux_classify_process_name node /srv/decline/index.js)" = other ] \
+      || fail "a node path that merely contains cline must stay other"
+    [ "$(fm_backend_tmux_classify_process_name node /srv/node_modules/cline/dist/index.js)" = agent ] \
+      || fail "a node path under a cline component must classify agent"
     # Neighbours must not regress.
     [ "$(fm_backend_tmux_classify_process_name claude '')" = agent ] || fail "claude regressed"
     [ "$(fm_backend_tmux_classify_process_name zsh '')" = shell ] || fail "zsh regressed"
   ) || exit 1
   pass "tmux liveness: a cursor pane is agent; an unrelated node/agent is other, never dead"
+}
+
+test_harness_ancestry_matches_only_cline_node_paths() {
+  command -v node >/dev/null 2>&1 || return 0
+  local root path out
+  root="$TMP_ROOT/cline-paths"
+  for path in "$root/decline/index.js" "$root/node_modules/cline/dist/index.js"; do
+    mkdir -p "$(dirname "$path")"
+    cat > "$path" <<'JS'
+const { spawnSync } = require('child_process');
+const result = spawnSync(process.argv[2], [], { encoding: 'utf8', env: process.env });
+process.stdout.write(result.stdout);
+process.stderr.write(result.stderr);
+process.exit(result.status === null ? 1 : result.status);
+JS
+  done
+  out=$(node "$root/decline/index.js" "$HARNESS")
+  [ "$out" != cline ] || fail "an unrelated node path must not identify as cline"
+  out=$(node "$root/node_modules/cline/dist/index.js" "$HARNESS")
+  [ "$out" = cline ] || fail "a node path under cline must identify as cline, got '$out'"
+  pass "Cline node ancestry and tmux liveness require exact path evidence"
 }
 
 # --- 3. Detection ordering ---------------------------------------------------
@@ -395,6 +420,7 @@ test_verify_executable_refuses_unrelated_agent
 test_resolve_binary_prefers_stable_path
 test_tmux_classifies_cursor_pane_without_inferring_dead
 test_cursor_marker_outranks_inherited_claudecode
+test_harness_ancestry_matches_only_cline_node_paths
 test_harness_ancestry_rejects_cursor_named_node_script
 test_transcript_fold_brackets_a_turn
 test_transcript_fold_ignores_lifecycle_tokens_in_message_text

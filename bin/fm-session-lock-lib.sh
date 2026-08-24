@@ -45,6 +45,20 @@ fm_harness_path_name() {  # <path>
   return 1
 }
 
+fm_cline_path_matches() {  # <path>...
+  local path base
+  for path in "$@"; do
+    base=${path##*/}
+    case "$base" in
+      cline|cline.js|cline.cjs|cline.mjs) return 0 ;;
+    esac
+    case "/$path/" in
+      */cline/*) return 0 ;;
+    esac
+  done
+  return 1
+}
+
 # True when the process described by command name $1 and full argument string $2
 # is a verified harness. Sets FM_HARNESS_IS_CLAUDE for the ancestry walk.
 #

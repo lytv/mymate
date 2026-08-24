@@ -837,14 +837,27 @@ fm_busy_grok_tail_busy() {
 # an active Thinking line without the idle composer) is the busy signal, and
 # `Ask anything...` with no spinner is idle.
 fm_busy_cline_tail_busy() {
-  local lines
+  local lines idle_line busy_line
   lines=$(grep -v '^[[:space:]]*$' | tail -12)
-  if printf '%s\n' "$lines" | grep -qEx '[[:space:]]*❯[[:space:]]+Ask anything\.\.\.[[:space:]]*' \
-     && ! printf '%s\n' "$lines" | grep -qE '[⠹⠙⠸⠴⠦⠇]'; then
+  idle_line=$(printf '%s\n' "$lines" | awk '
+    NR == 1 { first = $0; next }
+    NR == 2 { second = $0; next }
+    {
+      if (first ~ /^[[:space:]]*─+[[:space:]]*$/ \
+          && second ~ /^[[:space:]]*❯[[:space:]]+Ask anything\.\.\.[[:space:]]*$/ \
+          && $0 ~ /^[[:space:]]*─+[[:space:]]*$/) last = NR - 1
+      first = second
+      second = $0
+    }
+    END { if (last) print last }
+  ')
+  busy_line=$(printf '%s\n' "$lines" \
+    | grep -inE "${FM_BUSY_REGEX:-${FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT:-[⠹⠙⠸⠴⠦⠇]|▶ Thinking:}}" \
+    | tail -n 1 | cut -d: -f1)
+  if [ -n "$idle_line" ] && { [ -z "$busy_line" ] || [ "$idle_line" -gt "$busy_line" ]; }; then
     return 1
   fi
-  if printf '%s\n' "$lines" \
-    | grep -qiE "${FM_BUSY_REGEX:-${FM_DELIVERY_CLINE_BUSY_REGEX_DEFAULT:-[⠹⠙⠸⠴⠦⠇]|▶ Thinking:}}"; then
+  if [ -n "$busy_line" ]; then
     return 0
   fi
   return 2

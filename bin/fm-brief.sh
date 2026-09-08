@@ -194,18 +194,6 @@ done
 # --test-scout is a scout variant, not a new runtime kind. Validate its flag
 # contract before mkdir so a refused call leaves no task directory.
 if [ "$TEST_SCOUT" -eq 1 ]; then
-  if [ "$SCOUT_FLAG" -eq 1 ]; then
-    echo "error: --test-scout cannot be combined with --scout" >&2
-    exit 1
-  fi
-  if [ "$SECONDMATE_FLAG" -eq 1 ]; then
-    echo "error: --test-scout cannot be combined with --secondmate" >&2
-    exit 1
-  fi
-  if [ "$MODE_SET" -eq 1 ]; then
-    echo "error: --test-scout cannot be combined with --mode" >&2
-    exit 1
-  fi
   if [ "$SOURCE_SET" -eq 0 ]; then
     echo "error: --test-scout requires --source <ado|jira|none>" >&2
     exit 1

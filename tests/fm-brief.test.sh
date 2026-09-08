@@ -931,12 +931,16 @@ test_test_scout_scaffold_and_refusals() {
     esac
   done <<'ROWS'
 test-scout without source|brief-ts-nosrc alpha --test-scout|--test-scout requires --source
+test-scout without repository|brief-ts-norepo --test-scout --source ado|--test-scout requires a task ID and repository
+test-scout without task ID|--test-scout --source ado|--test-scout requires a task ID and repository
 source without test-scout|brief-ts-orphansrc alpha --scout --source ado|--source requires --test-scout
 source alone on ship|brief-ts-shipsrc alpha --mode no-mistakes --source none|--source requires --test-scout
 test-scout with scout|brief-ts-withscout alpha --test-scout --source ado --scout|--test-scout cannot be combined with --scout
 test-scout with secondmate|brief-ts-withsm --test-scout --source ado --secondmate --no-projects|--test-scout cannot be combined with --secondmate
 test-scout with mode|brief-ts-withmode alpha --test-scout --source ado --mode no-mistakes|--test-scout cannot be combined with --mode
 bad source value|brief-ts-badsrc alpha --test-scout --source github|--source must be one of ado, jira, none
+duplicate spaced source|brief-ts-dupsrc alpha --test-scout --source ado --source jira|--test-scout accepts only one --source
+duplicate equals source|brief-ts-dupsrceq alpha --test-scout --source=ado --source=jira|--test-scout accepts only one --source
 ROWS
 
   # Plain scout after the new path still matches the earlier baseline content for

@@ -134,6 +134,7 @@ SCOUT_FLAG=0
 SECONDMATE_FLAG=0
 SOURCE=
 SOURCE_SET=0
+SOURCE_COUNT=0
 POS=()
 want_value=
 for a in "$@"; do
@@ -143,7 +144,7 @@ for a in "$@"; do
     esac
     case "$want_value" in
       mode) MODE=$a; MODE_SET=1 ;;
-      source) SOURCE=$a; SOURCE_SET=1 ;;
+      source) SOURCE=$a; SOURCE_SET=1; SOURCE_COUNT=$((SOURCE_COUNT + 1)) ;;
       *) echo "error: internal parser state for --$want_value" >&2; exit 1 ;;
     esac
     want_value=
@@ -158,7 +159,7 @@ for a in "$@"; do
     --mode) want_value=mode ;;
     --mode=*) MODE=${a#--mode=}; MODE_SET=1 ;;
     --source) want_value=source ;;
-    --source=*) SOURCE=${a#--source=}; SOURCE_SET=1 ;;
+    --source=*) SOURCE=${a#--source=}; SOURCE_SET=1; SOURCE_COUNT=$((SOURCE_COUNT + 1)) ;;
     # yolo never reaches the worker: it is firstmate's merge authority, not a
     # brief input. Refuse it loudly so it is never silently dropped here and then
     # believed to have been recorded.
@@ -185,6 +186,14 @@ if [ "$TEST_SCOUT" -eq 1 ]; then
   fi
   if [ "$SOURCE_SET" -eq 0 ]; then
     echo "error: --test-scout requires --source <ado|jira|none>" >&2
+    exit 1
+  fi
+  if [ "$SOURCE_COUNT" -gt 1 ]; then
+    echo "error: --test-scout accepts only one --source" >&2
+    exit 1
+  fi
+  if [ "${#POS[@]}" -lt 2 ]; then
+    echo "error: --test-scout requires a task ID and repository" >&2
     exit 1
   fi
   case "$SOURCE" in

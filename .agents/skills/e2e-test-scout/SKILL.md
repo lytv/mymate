@@ -66,4 +66,5 @@ bin/fm-brief.sh <task-id> <repo-name> --test-scout --source <ado|jira|none> [--h
 
 Fill `## Captain's intent` (`{TASK}`) with the target URL, requirements-source specifics (export scope, Jira query, or approved file path plus provenance), and scope.
 Fill `## Firstmate spec` (`{FIRSTMATE_SPEC}`) with any Firstmate build constraints for this run.
-Then spawn on the ordinary scout path; `KIND` remains scout.
+Run `bin/fm-spawn.sh <task-id> <project-dir> --scout --harness claude`.
+`KIND` remains scout.

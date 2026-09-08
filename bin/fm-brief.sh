@@ -138,6 +138,28 @@ SOURCE_COUNT=0
 POS=()
 want_value=
 for a in "$@"; do
+  case "$a" in
+    --test-scout) TEST_SCOUT=1 ;;
+    --scout) SCOUT_FLAG=1 ;;
+    --secondmate) SECONDMATE_FLAG=1 ;;
+    --mode|--mode=*) MODE_SET=1 ;;
+  esac
+done
+if [ "$TEST_SCOUT" -eq 1 ]; then
+  if [ "$SCOUT_FLAG" -eq 1 ]; then
+    echo "error: --test-scout cannot be combined with --scout" >&2
+    exit 1
+  fi
+  if [ "$SECONDMATE_FLAG" -eq 1 ]; then
+    echo "error: --test-scout cannot be combined with --secondmate" >&2
+    exit 1
+  fi
+  if [ "$MODE_SET" -eq 1 ]; then
+    echo "error: --test-scout cannot be combined with --mode" >&2
+    exit 1
+  fi
+fi
+for a in "$@"; do
   if [ -n "$want_value" ]; then
     case "$a" in
       --*) echo "error: --$want_value requires a value" >&2; exit 1 ;;
@@ -151,13 +173,13 @@ for a in "$@"; do
     continue
   fi
   case "$a" in
-    --scout) SCOUT_FLAG=1; KIND=scout ;;
-    --secondmate) SECONDMATE_FLAG=1; KIND=secondmate ;;
-    --test-scout) TEST_SCOUT=1; KIND=scout ;;
+    --scout) KIND=scout ;;
+    --secondmate) KIND=secondmate ;;
+    --test-scout) KIND=scout ;;
     --herdr-lab) HERDR_LAB=1 ;;
     --no-projects) NO_PROJECTS=1 ;;
     --mode) want_value=mode ;;
-    --mode=*) MODE=${a#--mode=}; MODE_SET=1 ;;
+    --mode=*) MODE=${a#--mode=} ;;
     --source) want_value=source ;;
     --source=*) SOURCE=${a#--source=}; SOURCE_SET=1; SOURCE_COUNT=$((SOURCE_COUNT + 1)) ;;
     # yolo never reaches the worker: it is firstmate's merge authority, not a

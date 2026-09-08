@@ -938,6 +938,7 @@ source alone on ship|brief-ts-shipsrc alpha --mode no-mistakes --source none|--s
 test-scout with scout|brief-ts-withscout alpha --test-scout --source ado --scout|--test-scout cannot be combined with --scout
 test-scout with secondmate|brief-ts-withsm --test-scout --source ado --secondmate --no-projects|--test-scout cannot be combined with --secondmate
 test-scout with mode|brief-ts-withmode alpha --test-scout --source ado --mode no-mistakes|--test-scout cannot be combined with --mode
+test-scout with bare mode|brief-ts-baremode alpha --test-scout --source ado --mode|--test-scout cannot be combined with --mode
 bad source value|brief-ts-badsrc alpha --test-scout --source github|--source must be one of ado, jira, none
 duplicate spaced source|brief-ts-dupsrc alpha --test-scout --source ado --source jira|--test-scout accepts only one --source
 duplicate equals source|brief-ts-dupsrceq alpha --test-scout --source=ado --source=jira|--test-scout accepts only one --source
